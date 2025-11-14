@@ -18,6 +18,7 @@ export const ServicesSection = () => {
       features: ["Summaries", "Scheduling", "Many more"],
       image: "/images/ai-assistant.png", // Add your image here
     },
+
     {
       category: "Sales & Marketing",
       title: "Accelerate Sales Growth",
