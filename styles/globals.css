@@ -2,6 +2,12 @@
 
 @config "../tailwind.config.js";
 
+/* Ensure sections have proper stacking context */
+section {
+  position: relative;
+  isolation: isolate;
+}
+
 /* Custom animations for infinite scroll */
 @keyframes infinite-scroll {
   from {
