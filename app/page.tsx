@@ -3,6 +3,8 @@ import { LogoSection } from "@/components/LogoSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { BenefitsSection } from "@/components/BenefitsSection";
+import { PricingSection } from "@/components/PricingSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <ServicesSection />
       <ProcessSection />
       <BenefitsSection />
+      <PricingSection />
+      <TestimonialsSection />
     </main>
   );
 }
