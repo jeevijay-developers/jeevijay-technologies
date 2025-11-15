@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/Footer";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -28,10 +29,10 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col min-h-screen">
             <Navbar />
-            <main className="pt-16 bg-black">{children}</main>
-            <footer className="w-full flex items-center justify-center py-3 bg-black"></footer>
+            <main className="pt-16 bg-black flex-grow">{children}</main>
+            <Footer />
           </div>
         </Providers>
       </body>
