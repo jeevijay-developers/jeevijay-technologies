@@ -3,37 +3,41 @@
 export const ServicesSection = () => {
   const services = [
     {
-      category: "Workflow Automation",
-      title: "Automate repetitive tasks",
+      category: "App Development",
+      title: "Native & Cross-Platform Mobile Solutions",
       description:
-        "We help you streamline internal operations by automating manual workflows like data entry, reporting, and approval chains saving time and cutting down errors.",
-      features: ["Internal Task Bots", "100+ Automations"],
-      image: "/images/workflow-automation.png", // Add your image here
+        "Enterprise-grade Android, iOS, and cross-platform applications engineered for speed, security, and seamless scalability. Native and React Native/Flutter solutions delivering exceptional performance across all devices.",
+      features: [
+        "Native iOS & Android",
+        "Cross-Platform Apps",
+        "API Integration",
+      ],
+      image: "/images/workflow-automation.png",
     },
     {
-      category: "AI Assistant",
-      title: "Delegate Daily Tasks",
+      category: "Website Development",
+      title: "SEO-Optimised Digital Platforms",
       description:
-        "From scheduling meetings to managing emails and summarizing reports, our AI assistants work where the task to help your business running smarter and faster.",
-      features: ["Summaries", "Scheduling", "Many more"],
-      image: "/images/ai-assistant.png", // Add your image here
+        "Fast, responsive, and search-engine-optimised websites that convert visitors into customers. Corporate websites, e-commerce platforms, LMS, CRM portals, and custom workflow applications.",
+      features: ["Corporate Sites", "E-commerce", "Custom Portals"],
+      image: "/images/ai-assistant.png",
     },
 
     {
-      category: "Sales & Marketing",
-      title: "Accelerate Sales Growth",
+      category: "UI/UX Design",
+      title: "Conversion-Led User Experiences",
       description:
-        "AI tools for lead generation, personalized outreach, and automated content creation that scales your sales efforts and builds stronger brand presence.",
-      features: ["Leads", "Content", "Social post"],
-      image: "/images/sales-marketing.png", // Add your image here
+        "Modern, minimal interfaces with clean interaction flows that guide users naturally towards desired actions. User research, prototyping, visual design, and usability testing for maximum conversion rates.",
+      features: ["User Research", "Prototyping", "Visual Design"],
+      image: "/images/sales-marketing.png",
     },
     {
-      category: "Custom Projects",
-      title: "Build Smarter Systems",
+      category: "Digital Marketing",
+      title: "Data-Driven Growth Strategies",
       description:
-        "Whether you're starting from scratch or enhancing an existing system, we offer strategic consulting and develop custom AI projects aligned with your unique goals.",
-      features: ["Strategy", "Custom AI", "Consulting"],
-      image: "/images/custom-projects.png", // Add your image here
+        "Performance marketing combining strategic planning, creative excellence, and data analysis. Meta Ads, Google Ads, SEO, and marketing automation delivering 3-5x ROAS with transparent reporting.",
+      features: ["Meta & Google Ads", "SEO Services", "Marketing Automation"],
+      image: "/images/custom-projects.png",
     },
   ];
 
@@ -46,13 +50,14 @@ export const ServicesSection = () => {
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
-            AI Solutions That Take Your
+            Comprehensive Technology Services
             <br />
-            Business to the Next Level
+            for Business Growth
           </h2>
           <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
-            We design, develop, and implement automation tools that help you
-            work smarter, not harder
+            From strategic planning and design through development, deployment,
+            and continuous optimisation. We combine technical excellence with
+            business acumen to deliver measurable returns on investment.
           </p>
         </div>
 

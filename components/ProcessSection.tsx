@@ -6,61 +6,65 @@ export const ProcessSection = () => {
   const steps = [
     {
       stepNumber: "Step 1",
-      title: "Smart Analyzing",
+      title: "Discovery & Strategy",
       description:
-        "We assess your needs and identify AI solutions to streamline workflows and improve efficiency.",
+        "Comprehensive business analysis, competitive research, technology roadmap development, and measurable success metrics definition aligned with your business objectives.",
       features: [
-        "System check",
-        "Process check",
-        "Speed check",
-        "Manual work",
-        "Repetition task",
+        "Business Analysis",
+        "Competitive Research",
+        "Technology Roadmap",
+        "Success Metrics",
+        "Strategic Planning",
       ],
-      image: "/images/smart-analyzing.png", // Add your image here
+      image: "/images/smart-analyzing.png",
     },
     {
       stepNumber: "Step 2",
-      title: "AI Development",
+      title: "Design & Prototyping",
       description:
-        "Our team builds intelligent automation systems tailored to your business processes.",
+        "User research, wireframing, high-fidelity mockups, interactive prototypes, and usability testing with real user feedback for optimal user experiences.",
       codeSnippet: `class AutomationTrigger:
     def __init__(self, schedule):
         self.schedule = schedule
         self.execute()
         
 def check_trigger(self, webhook):`,
-      image: "/images/ai-development.png", // Add your image here
+      image: "/images/ai-development.png",
     },
     {
       stepNumber: "Step 3",
-      title: "Seamless Integration",
+      title: "Development & Integration",
       description:
-        "We smoothly integrate AI solutions into your existing infrastructure with minimal disruption.",
+        "Agile development methodology, API integrations, third-party service connections, and comprehensive quality assurance testing ensuring flawless functionality.",
       integrations: [
         { name: "Our solution", icon: "🔮" },
         { name: "Your stack", icon: "⚙️" },
       ],
-      image: "/images/seamless-integration.png", // Add your image here
+      image: "/images/seamless-integration.png",
     },
     {
       stepNumber: "Step 4",
-      title: "Continuous Optimization",
+      title: "Launch & Optimisation",
       description:
-        "We refine performance, analyze insights, and enhance automation for long-term growth.",
+        "Deployment planning, performance monitoring, continuous improvement, and data-driven enhancement strategies ensuring sustained business growth.",
       metrics: [
         {
-          name: "Chatbot system",
-          detail: "Efficiency will increase for 20%",
+          name: "Performance Monitoring",
+          detail: "Real-time analytics tracking",
           status: "up",
         },
         {
-          name: "Workflow system",
-          detail: "Update available",
+          name: "System Updates",
+          detail: "Continuous improvements",
           status: "update",
         },
-        { name: "Sales funnel", detail: "Up-to-date", status: "check" },
+        {
+          name: "Quality Assurance",
+          detail: "Optimal performance",
+          status: "check",
+        },
       ],
-      image: "/images/continuous-optimization.png", // Add your image here
+      image: "/images/continuous-optimization.png",
     },
   ];
 
@@ -73,13 +77,14 @@ def check_trigger(self, webhook):`,
             Our Process
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
-            Our Simple, Smart,
+            Our Proven Development
             <br />
-            and Scalable Process
+            Process for Success
           </h2>
           <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
-            We design, develop, and implement automation tools that help you
-            work smarter, not harder
+            From discovery to deployment, our integrated approach addresses
+            every dimension of digital transformation, delivering solutions that
+            generate measurable business results.
           </p>
         </div>
 
