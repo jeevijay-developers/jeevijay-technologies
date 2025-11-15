@@ -70,12 +70,12 @@ export const PricingSection = () => {
           <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             Pricing
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
             The Best AI Automation,
             <br />
             at the Right Price
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
+          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto mb-8">
             Choose a plan that fits your business needs and start automating
             with AI
           </p>

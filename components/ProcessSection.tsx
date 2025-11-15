@@ -69,15 +69,15 @@ def check_trigger(self, webhook):`,
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             Our Process
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
             Our Simple, Smart,
             <br />
             and Scalable Process
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
             We design, develop, and implement automation tools that help you
             work smarter, not harder
           </p>

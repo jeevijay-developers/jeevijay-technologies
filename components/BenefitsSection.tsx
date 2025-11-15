@@ -47,15 +47,15 @@ export const BenefitsSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             Benefits
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
             The Key Benefits of AI
             <br />
             for Your Business Growth
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
             Discover how AI automation enhances efficiency, reduces costs, and
             drives business growth with smarter, faster processes.
           </p>

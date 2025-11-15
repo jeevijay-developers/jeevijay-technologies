@@ -2,6 +2,14 @@
 
 @config "../tailwind.config.js";
 
+/* Figtree font utility */
+.font-figtree {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
