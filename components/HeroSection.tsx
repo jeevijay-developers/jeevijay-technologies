@@ -6,7 +6,10 @@ import { ParticleBackground } from "./ParticleBackground";
 
 export const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+    >
       {/* Particle Background */}
       <ParticleBackground />
 
@@ -14,26 +17,25 @@ export const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[150px] z-[1]" />
 
       {/* Content */}
-      <div className="relative z-[2] max-w-5xl mx-auto px-6 text-center">
-        {/* New Badge */}
+      <div className="relative z-[2] max-w-7xl mx-auto px-6 text-center">
+        {/* SEO Badge */}
         <div className="inline-flex items-center justify-center mb-8">
           <span className="bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full">
-            New
+            India's Premium Tech Company
           </span>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Intelligent Automation for
-          <br />
-          <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Modern Businesses.
-          </span>
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6 leading-tight">
+          Building digital experiences <br /> that drive real business growth
         </h1>
 
         {/* Subheading */}
-        <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto">
-          Xtract brings AI automation to your fingertips & streamline tasks.
+        <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
+          Jeevijay Technologies is India's premium technology transformation
+          company delivering powerful digital solutions across app development,
+          website development, AI automation, branding, and result-oriented
+          digital marketing.
         </p>
 
         {/* CTA Buttons */}

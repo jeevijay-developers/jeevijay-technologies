@@ -8,34 +8,34 @@ export const TestimonialsSection = () => {
     {
       rating: 5,
       quote:
-        "AI automation transformed our operations by eliminating repetitive tasks and improving efficiency. Scaling our workflow has never been easier!",
-      name: "James Carter",
-      title: "CEO at TechFlow Solutions",
-      avatar: "/avatars/james.jpg", // Replace with actual image
+        "Jeevijay Technologies transformed our patient management system with intuitive design and robust functionality. The telemedicine platform they built has significantly improved our healthcare delivery.",
+      name: "Dr. Rajesh Kumar",
+      title: "Medical Director, Apollo HealthCare",
+      avatar: "/avatars/james.jpg",
     },
     {
       rating: 5,
       quote:
-        "With AI, we cut manual work and improved accuracy. Our team now focuses on high-impact tasks while automation handles the rest!",
-      name: "Sophia Martinez",
-      title: "Operations Manager at NexaCorp",
-      avatar: "/avatars/sophia.jpg", // Replace with actual image
+        "The e-commerce platform they developed increased our conversion rate by 89%. Their SEO expertise brought us to the first page of Google within three months. Outstanding technical excellence.",
+      name: "Priya Sharma",
+      title: "Founder, StyleCraft Fashion",
+      avatar: "/avatars/sophia.jpg",
     },
     {
       rating: 5,
       quote:
-        "AI-driven insights doubled our sales efficiency. We now engage leads at the right time with smarter, data-backed decisions!",
-      name: "David Reynolds",
-      title: "Head of Sales at GrowthPeak",
-      avatar: "/avatars/david.jpg", // Replace with actual image
+        "Our logistics operations improved dramatically with the fleet management system. Real-time tracking and route optimisation reduced delivery times by 40% and operational costs significantly.",
+      name: "Amit Patel",
+      title: "Operations Head, SwiftMove Logistics",
+      avatar: "/avatars/david.jpg",
     },
     {
       rating: 5,
       quote:
-        "Customer support is now seamless. Our response time improved drastically, and satisfaction levels are at an all-time high, thanks to xtract",
-      name: "Emily Wong",
-      title: "Customer Success Lead at SupportHive",
-      avatar: "/avatars/emily.jpg", // Replace with actual image
+        "The learning management system they built handles 50,000+ students seamlessly. Their attention to detail, technical expertise, and ongoing support has been exemplary throughout our partnership.",
+      name: "Meera Reddy",
+      title: "Director, EduTech Academy",
+      avatar: "/avatars/emily.jpg",
     },
   ];
 
@@ -47,13 +47,14 @@ export const TestimonialsSection = () => {
           <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Why Businesses Love
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
+            Trusted by Industry Leaders
             <br />
-            Our AI Solutions
+            Across Eight Sectors
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Real businesses, real results with AI automation.
+          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
+            Real businesses achieving measurable results through our technology
+            solutions and digital transformation expertise.
           </p>
         </div>
 

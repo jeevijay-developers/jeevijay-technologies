@@ -22,11 +22,11 @@ export const LogoSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">
-            Trusted by industry leaders
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Companies we work with
+          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+            Brands who trusts us
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
+            Trusted by 50+ Growing Businesses
           </h2>
         </div>
 

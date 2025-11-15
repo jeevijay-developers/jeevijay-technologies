@@ -13,7 +13,8 @@ export const PricingSection = () => {
     {
       icon: <FiZap className="w-5 h-5" />,
       name: "Starter",
-      description: "Perfect for small businesses starting with AI automation.",
+      description:
+        "Perfect for startups and small businesses launching their digital presence.",
       monthlyPrice: 37,
       annualPrice: 30,
       features: [
@@ -30,7 +31,8 @@ export const PricingSection = () => {
     {
       icon: <FiTrendingUp className="w-5 h-5" />,
       name: "Professional",
-      description: "Perfect for small businesses starting with AI automation.",
+      description:
+        "Ideal for growing businesses seeking comprehensive digital solutions.",
       monthlyPrice: 75,
       annualPrice: 60,
       features: [
@@ -48,7 +50,8 @@ export const PricingSection = () => {
       icon: <FiUsers className="w-5 h-5" />,
       name: "Enterprise",
       price: "Custom",
-      description: "Perfect for small businesses starting with AI automation.",
+      description:
+        "Tailored solutions for large enterprises with complex requirements.",
       features: [
         "Fully customizable AI automation",
         "Dedicated AI business consultant",
@@ -70,14 +73,14 @@ export const PricingSection = () => {
           <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             Pricing
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            The Best AI Automation,
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
+            Flexible Plans for Every
             <br />
-            at the Right Price
+            Business Stage
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
-            Choose a plan that fits your business needs and start automating
-            with AI
+          <p className="text-md md:text-[20px] text-gray-400 mb-8 max-w-3xl mx-auto">
+            Choose a plan that aligns with your growth objectives and scale
+            seamlessly as your business expands.
           </p>
 
           {/* Toggle Switch */}

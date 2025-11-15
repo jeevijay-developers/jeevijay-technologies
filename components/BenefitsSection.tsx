@@ -6,39 +6,39 @@ export const BenefitsSection = () => {
   const benefits = [
     {
       icon: "⚡",
-      title: "Increased Productivity",
+      title: "8 Industry Verticals",
       description:
-        "Gain actionable insights with AI-driven analytics to improve decision-making and strategy.",
+        "Deep domain expertise across Healthcare, Education, FMCG, E-commerce, Logistics, Manufacturing, Finance, and Hospitality sectors.",
     },
     {
       icon: "😊",
-      title: "Better Customer Experience",
+      title: "95+ PageSpeed Score",
       description:
-        "Personalized AI interactions improve response times, customer engagement, and overall satisfaction.",
+        "Lightning-fast performance with 2.5s average page load time, optimised for Indian internet infrastructure and mobile networks.",
     },
     {
       icon: "🕐",
-      title: "24/7 Availability",
+      title: "100% Mobile Responsive",
       description:
-        "AI-powered systems operate around the clock, ensuring seamless support and execution without downtime.",
+        "Flawless experience across all devices, screen sizes, and mobile browsers with responsive design excellence.",
     },
     {
       icon: "💰",
-      title: "Cost Reduction",
+      title: "350% Average ROAS",
       description:
-        "AI automation minimizes manual work, cuts operational costs, and optimizes resource allocation for better profitability.",
+        "Three-and-half rupees returned for every rupee invested in paid advertising campaigns with data-driven optimisation.",
     },
     {
       icon: "🧠",
-      title: "Data-Driven Insights",
+      title: "67% Lead Cost Reduction",
       description:
-        "Leverage AI to analyze vast data sets, identify trends, and make smarter, faster, and more accurate business decisions.",
+        "Continuous optimisation reducing customer acquisition costs by two-thirds through strategic campaign management.",
     },
     {
       icon: "📈",
-      title: "Scalability & Growth",
+      title: "89% Conversion Rate",
       description:
-        "AI adapts to your business needs, allowing you to scale efficiently without increasing workload or costs.",
+        "High-converting landing pages turning cold traffic into qualified sales opportunities with strategic design.",
     },
   ];
 
@@ -47,17 +47,18 @@ export const BenefitsSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-4">
+          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             Benefits
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            The Key Benefits of AI
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
+            Why Leading Businesses
             <br />
-            for Your Business Growth
+            Choose Jeevijay Technologies
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Discover how AI automation enhances efficiency, reduces costs, and
-            drives business growth with smarter, faster processes.
+          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
+            Industry-leading performance metrics, deep domain expertise, and
+            proven results driving measurable business outcomes across eight
+            critical sectors.
           </p>
         </div>
 

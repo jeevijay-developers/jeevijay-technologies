@@ -18,13 +18,10 @@ export const ContactSection = () => {
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12 mt-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-4">
             Ready to Automate Smarter?
           </h2>
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Let's <span className="italic font-serif">Build Together</span>
-          </h3>
-          <p className="text-gray-400 text-lg">
+          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
             Schedule a Call and Begin Automating
           </p>
         </div>
