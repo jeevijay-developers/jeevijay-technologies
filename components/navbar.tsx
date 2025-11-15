@@ -2,13 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@heroui/button";
-import { Link } from "@heroui/link";
 import NextLink from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
-
 import { siteConfig } from "@/config/site";
-import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,7 +99,7 @@ export const Navbar = () => {
             <Button
               as={NextLink}
               href="/contact"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-all duration-200 px-5 py-2 text-sm"
+              className="bg-[#ffde59] text-black font-medium transition-all duration-200 px-5 py-2 text-sm"
               radius="md"
             >
               Get in touch →

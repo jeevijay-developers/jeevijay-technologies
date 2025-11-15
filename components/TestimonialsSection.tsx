@@ -44,7 +44,7 @@ export const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -81,8 +81,8 @@ export const TestimonialsSection = () => {
                 {/* Author Info */}
                 <div className="flex items-center gap-4">
                   {/* Avatar Placeholder */}
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-semibold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ffde59] to-[#e6c750] flex items-center justify-center flex-shrink-0">
+                    <span className="text-black font-semibold text-lg">
                       {testimonial.name.charAt(0)}
                     </span>
                   </div>

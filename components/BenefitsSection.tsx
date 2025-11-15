@@ -47,7 +47,7 @@ export const BenefitsSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Benefits
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -67,7 +67,7 @@ export const BenefitsSection = () => {
           {benefits.map((benefit, index) => (
             <Card
               key={index}
-              className="bg-gradient-to-br from-transparent to-purple-950/20 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
+              className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
             >
               <CardBody className="p-8">
                 {/* Icon */}

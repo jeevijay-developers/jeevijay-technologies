@@ -70,7 +70,7 @@ export const PricingSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Pricing
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -97,7 +97,7 @@ export const PricingSection = () => {
               onValueChange={setIsAnnual}
               size="lg"
               classNames={{
-                wrapper: "bg-zinc-700 group-data-[selected=true]:bg-purple-600",
+                wrapper: "bg-zinc-700 group-data-[selected=true]:bg-[#ffde59]",
               }}
             />
             <span
@@ -117,13 +117,13 @@ export const PricingSection = () => {
               key={index}
               className={`bg-gradient-to-br ${
                 plan.popular
-                  ? "from-purple-900/40 to-zinc-950 border-2 border-purple-600"
+                  ? "from-[#ffde59]/20 to-zinc-950 border-2 border-[#ffde59]"
                   : "from-zinc-900 to-zinc-950 border border-zinc-800"
               } relative`}
             >
               {plan.popular && (
                 <div className="absolute left-1/2 -translate-x-1/2">
-                  <span className="bg-purple-600 text-white text-sm font-medium px-4 py-1 rounded-full">
+                  <span className="bg-[#ffde59] text-black text-sm font-medium px-4 py-1 rounded-full">
                     Popular
                   </span>
                 </div>
@@ -131,7 +131,7 @@ export const PricingSection = () => {
 
               <CardHeader className="flex-col items-start gap-3 pb-6 pt-8">
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-purple-600/20 flex items-center justify-center text-purple-400">
+                <div className="w-12 h-12 rounded-lg bg-[#ffde59]/20 flex items-center justify-center text-[#ffde59]">
                   {plan.icon}
                 </div>
 
@@ -163,7 +163,7 @@ export const PricingSection = () => {
                 <Button
                   className={`w-full mb-6 font-medium ${
                     plan.buttonVariant === "solid"
-                      ? "bg-purple-600 hover:bg-purple-700 text-white"
+                      ? "bg-[#ffde59] hover:bg-[#e6c750] text-black"
                       : "border-2 border-zinc-700 hover:border-zinc-600 text-white bg-transparent"
                   }`}
                   size="lg"
@@ -178,7 +178,7 @@ export const PricingSection = () => {
                   </p>
                   {plan.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
-                      <FiCheck className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                      <FiCheck className="w-5 h-5 text-[#ffde59] flex-shrink-0 mt-0.5" />
                       <span className="text-gray-300 text-sm">{feature}</span>
                     </div>
                   ))}

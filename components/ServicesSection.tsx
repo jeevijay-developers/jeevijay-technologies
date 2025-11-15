@@ -46,7 +46,7 @@ export const ServicesSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -76,7 +76,7 @@ export const ServicesSection = () => {
                   index % 2 === 1 ? "md:order-2" : ""
                 } bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all duration-300`}
               >
-                <p className="text-purple-400 text-sm font-medium mb-3">
+                <p className="text-[#ffde59] text-sm font-medium mb-3">
                   {service.category}
                 </p>
                 <h3 className="text-3xl font-bold text-white mb-4">

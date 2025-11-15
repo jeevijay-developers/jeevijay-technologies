@@ -14,13 +14,13 @@ export const HeroSection = () => {
       <ParticleBackground />
 
       {/* Gradient Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[150px] z-[1]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ffde59]/30 rounded-full blur-[150px] z-[1]" />
 
       {/* Content */}
       <div className="relative z-[2] max-w-7xl mx-auto px-6 text-center">
         {/* SEO Badge */}
         <div className="inline-flex items-center justify-center mb-8">
-          <span className="bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full">
+          <span className="bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full">
             India's Premium Tech Company
           </span>
         </div>
@@ -44,7 +44,7 @@ export const HeroSection = () => {
             as={NextLink}
             href="/contact"
             size="lg"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 text-base rounded-lg transition-all"
+            className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-8 py-6 text-base rounded-lg transition-all"
           >
             Get in touch →
           </Button>

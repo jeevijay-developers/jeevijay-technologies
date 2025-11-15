@@ -40,7 +40,7 @@ export const ContactSection = () => {
                 input: "text-white",
                 label: "text-gray-400",
                 inputWrapper:
-                  "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-purple-600",
+                  "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
               }}
             />
 
@@ -55,7 +55,7 @@ export const ContactSection = () => {
                 input: "text-white",
                 label: "text-gray-400",
                 inputWrapper:
-                  "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-purple-600",
+                  "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
               }}
             />
           </div>
@@ -71,7 +71,7 @@ export const ContactSection = () => {
               input: "text-white",
               label: "text-gray-400",
               inputWrapper:
-                "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-purple-600",
+                "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
             }}
           />
 
@@ -80,7 +80,7 @@ export const ContactSection = () => {
             <Button
               type="submit"
               size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 text-base rounded-lg transition-all"
+              className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-8 py-6 text-base rounded-lg transition-all"
             >
               Send Message
             </Button>
@@ -116,7 +116,7 @@ export const ContactSection = () => {
         </div>
 
         {/* CTA Card */}
-        <div className="bg-gradient-to-br from-purple-900/30 via-zinc-900 to-zinc-950 rounded-2xl border border-gray-900/50 p-12 text-center my-[8rem]">
+        <div className="bg-gradient-to-br from-[#ffde59]/20 via-zinc-900 to-zinc-950 rounded-2xl border border-gray-900/50 p-12 text-center my-[8rem]">
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Let AI do the Work so
             <br />

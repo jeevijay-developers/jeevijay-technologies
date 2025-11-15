@@ -22,7 +22,7 @@ export const LogoSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <span className="inline-block bg-purple-600 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Brands who trusts us
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
