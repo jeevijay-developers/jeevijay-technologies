@@ -65,7 +65,7 @@ def check_trigger(self, webhook):`,
   ];
 
   return (
-    <section className="w-full py-20 bg-black">
+    <section id="process" className="w-full py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
