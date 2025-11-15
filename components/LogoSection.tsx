@@ -1,16 +1,17 @@
 "use client";
 
+import Image from "next/image";
+
 export const LogoSection = () => {
-  // Sample logo data - replace with your actual company logos
+  // Company logos
   const logos = [
-    { name: "Company 1", src: "/logos/company1.svg" },
-    { name: "Company 2", src: "/logos/company2.svg" },
-    { name: "Company 3", src: "/logos/company3.svg" },
-    { name: "Company 4", src: "/logos/company4.svg" },
-    { name: "Company 5", src: "/logos/company5.svg" },
-    { name: "Company 6", src: "/logos/company6.svg" },
-    { name: "Company 7", src: "/logos/company7.svg" },
-    { name: "Company 8", src: "/logos/company8.svg" },
+    { name: "Bridgestone", src: "/1.png" },
+    { name: "TCS", src: "/2.png" },
+    { name: "Bada Business", src: "/3.png" },
+    { name: "CoinDCX", src: "/4.png" },
+    { name: "Bikaji", src: "/5.png" },
+    { name: "Aditya Birla Group", src: "/6.png" },
+    { name: "ixigo", src: "/7.png" },
   ];
 
   // Duplicate logos for seamless infinite scroll
@@ -41,13 +42,16 @@ export const LogoSection = () => {
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center justify-center min-w-[200px] h-24 px-8"
+                className="flex-shrink-0 flex items-center justify-center min-w-[300px] h-40 px-8"
               >
-                {/* Placeholder for logo - replace with actual logo images */}
-                <div className="w-full h-full flex items-center justify-center bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300">
-                  <span className="text-white/60 font-semibold text-lg">
-                    {logo.name}
-                  </span>
+                <div className="w-full h-full flex items-center justify-center rounded-lg hover:bg-white/5 transition-all duration-300 p-6">
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={280}
+                    height={130}
+                    className="object-contain w-full h-full"
+                  />
                 </div>
               </div>
             ))}

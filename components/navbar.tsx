@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
+import Image from "next/image";
 import clsx from "clsx";
 
 import { siteConfig } from "@/config/site";
@@ -53,65 +54,60 @@ export const Navbar = () => {
     <>
       <nav
         className={clsx(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-          isScrolled ? "bg-black/95 backdrop-blur-md py-3" : "bg-transparent py-6"
+          "fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out",
+          isScrolled ? "bg-black/95 backdrop-blur-md py-2" : "bg-transparent py-3"
         )}
+        style={{ zIndex: 9999 }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo Section */}
-            <NextLink
-              className={clsx(
-                "flex items-center gap-2 transition-all duration-300",
-                isScrolled ? "scale-90" : "scale-100"
-              )}
-              href="/"
-            >
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <Logo />
-              </div>
-              <span className="text-white font-semibold text-xl">Radison</span>
-            </NextLink>
+          {/* Logo Section */}
+          <NextLink
+            className="flex items-center gap-2 transition-transform duration-300 ease-in-out"
+            href="/"
+          >
+            <Image
+              src="/logo.png"
+              alt="Radison Logo"
+              width={168}
+              height={48}
+              className="object-contain h-16"
+            />
+          </NextLink>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              {siteConfig.navItems.map((item) => (
-                <a
-                  key={item.href}
-                  className={clsx(
-                    "text-white/80 hover:text-white transition-colors duration-200 cursor-pointer",
-                    isScrolled ? "text-sm" : "text-base"
-                  )}
-                  href={item.href}
-                  onClick={(e) => {
-                    if (item.href.startsWith('#')) {
-                      e.preventDefault();
-                      const element = document.querySelector(item.href);
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {siteConfig.navItems.map((item) => (
+              <a
+                key={item.href}
+                className="text-white/80 hover:text-white transition-colors duration-200 cursor-pointer text-sm font-medium"
+                href={item.href}
+                onClick={(e) => {
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                  }}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-
-            {/* CTA Button */}
-            <div className="hidden md:block">
-              <Button
-                as={NextLink}
-                href="/contact"
-                className={clsx(
-                  "bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-all duration-300",
-                  isScrolled ? "px-4 py-2 text-sm" : "px-6 py-3 text-base"
-                )}
-                radius="md"
+                  }
+                }}
               >
-                Get in touch →
-              </Button>
-            </div>
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <Button
+              as={NextLink}
+              href="/contact"
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-all duration-200 px-5 py-2 text-sm"
+              radius="md"
+            >
+              Get in touch →
+            </Button>
+          </div>
 
             {/* Mobile Menu Button */}
             <button 
