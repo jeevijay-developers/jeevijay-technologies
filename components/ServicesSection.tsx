@@ -1,43 +1,62 @@
 "use client";
 
+import Image from "next/image";
+
 export const ServicesSection = () => {
   const services = [
     {
       category: "App Development",
-      title: "Native & Cross-Platform Mobile Solutions",
+      title: "Custom Mobile Apps for Your Business",
       description:
         "Enterprise-grade Android, iOS, and cross-platform applications engineered for speed, security, and seamless scalability. Native and React Native/Flutter solutions delivering exceptional performance across all devices.",
       features: [
         "Native iOS & Android",
         "Cross-Platform Apps",
+        "E-commerce Apps",
+        "Healthcare Solutions",
+        "Education Platforms",
         "API Integration",
       ],
-      image: "/images/workflow-automation.png",
+      image: "/services/app_dev.png",
     },
     {
       category: "Website Development",
-      title: "SEO-Optimised Digital Platforms",
+      title: "Professional Websites That Get Results",
       description:
         "Fast, responsive, and search-engine-optimised websites that convert visitors into customers. Corporate websites, e-commerce platforms, LMS, CRM portals, and custom workflow applications.",
-      features: ["Corporate Sites", "E-commerce", "Custom Portals"],
-      image: "/images/ai-assistant.png",
+      features: [
+        "Corporate Websites",
+        "E-commerce Platforms",
+        "Learning Management Systems",
+        "CRM Portals",
+        "Healthcare Portals",
+        "Custom Web Apps",
+      ],
+      image: "/services/web_dev.png",
     },
 
     {
       category: "UI/UX Design",
-      title: "Conversion-Led User Experiences",
+      title: "Beautiful Designs That Users Love",
       description:
         "Modern, minimal interfaces with clean interaction flows that guide users naturally towards desired actions. User research, prototyping, visual design, and usability testing for maximum conversion rates.",
       features: ["User Research", "Prototyping", "Visual Design"],
-      image: "/images/sales-marketing.png",
+      image: "/services/UX_UI.png",
     },
     {
       category: "Digital Marketing",
-      title: "Data-Driven Growth Strategies",
+      title: "Marketing That Grows Your Business",
       description:
         "Performance marketing combining strategic planning, creative excellence, and data analysis. Meta Ads, Google Ads, SEO, and marketing automation delivering 3-5x ROAS with transparent reporting.",
-      features: ["Meta & Google Ads", "SEO Services", "Marketing Automation"],
-      image: "/images/custom-projects.png",
+      features: [
+        "Meta & Google Ads",
+        "SEO Services",
+        "Social Media Marketing",
+        "Email Marketing",
+        "Content Marketing",
+        "Marketing Automation",
+      ],
+      image: "/services/digital.png",
     },
   ];
 
