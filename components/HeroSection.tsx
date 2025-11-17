@@ -50,7 +50,7 @@ export const HeroSection = () => {
           </Button>
           <Button
             as={NextLink}
-            href="/services"
+            href="/#services"
             size="lg"
             variant="bordered"
             className="border-2 border-white/20 text-white hover:bg-white/10 font-medium px-8 py-6 text-base rounded-lg transition-all"
