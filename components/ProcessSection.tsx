@@ -16,7 +16,7 @@ export const ProcessSection = () => {
         "Success Metrics",
         "Strategic Planning",
       ],
-      image: "/images/smart-analyzing.png",
+      image: "/process/image1.png",
     },
     {
       stepNumber: "Step 2",
@@ -29,7 +29,7 @@ export const ProcessSection = () => {
         self.execute()
         
 def check_trigger(self, webhook):`,
-      image: "/images/ai-development.png",
+      image: "/process/image2.png",
     },
     {
       stepNumber: "Step 3",
@@ -40,7 +40,7 @@ def check_trigger(self, webhook):`,
         { name: "Our solution", icon: "🔮" },
         { name: "Your stack", icon: "⚙️" },
       ],
-      image: "/images/seamless-integration.png",
+      image: "/process/image3.png",
     },
     {
       stepNumber: "Step 4",
@@ -64,7 +64,7 @@ def check_trigger(self, webhook):`,
           status: "check",
         },
       ],
-      image: "/images/continuous-optimization.png",
+      image: "/process/image4.png",
     },
   ];
 
@@ -109,7 +109,7 @@ def check_trigger(self, webhook):`,
               </div>
 
               {/* Visual Content */}
-              <div className="relative h-64 bg-black/40 rounded-xl border flex justify-center items-center border-zinc-800 overflow-hidden">
+              <div className="relative h-64 rounded-xl overflow-hidden">
                 {/* Step 1 - Checklist */}
                 {index === 0 && step.features && (
                   <Image
@@ -117,6 +117,7 @@ def check_trigger(self, webhook):`,
                     alt="step-1"
                     width={500}
                     height={256}
+                    className="object-cover w-full h-full rounded-xl"
                   />
                 )}
 
@@ -127,6 +128,7 @@ def check_trigger(self, webhook):`,
                     alt="step-2"
                     width={500}
                     height={256}
+                    className="object-cover w-full h-full rounded-xl"
                   />
                 )}
 
@@ -137,19 +139,19 @@ def check_trigger(self, webhook):`,
                     alt="step-3"
                     width={500}
                     height={256}
+                    className="object-cover w-full h-full rounded-xl"
                   />
                 )}
 
                 {/* Step 4 - Metrics List */}
                 {index === 3 && step.metrics && (
-                  <div className="space-y-4">
-                    <Image
-                      src={"/process/image4.png"}
-                      alt="step-4"
-                      width={500}
-                      height={256}
-                    />
-                  </div>
+                  <Image
+                    src={"/process/image4.png"}
+                    alt="step-4"
+                    width={500}
+                    height={256}
+                    className="object-cover w-full h-full rounded-[2rem]"
+                  />
                 )}
               </div>
             </div>
