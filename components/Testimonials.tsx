@@ -6,12 +6,11 @@ import { testimonials } from '@/data/Testimonials.data';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper modules
-import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
 
 const Testimonials = () => {
   return (
@@ -43,15 +42,12 @@ const Testimonials = () => {
               modifier: 2,
               slideShadows: false,
             }}
-            pagination={{
-              clickable: true,
-              dynamicBullets: true,
-            }}
+          
             autoplay={{
               delay: 4000,
               disableOnInteraction: false,
             }}
-            modules={[Autoplay, EffectCoverflow, Pagination]}
+            modules={[Autoplay, EffectCoverflow]}
             className="mySwiper !pb-16"
           >
             {testimonials.map((location) => (

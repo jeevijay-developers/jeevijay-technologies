@@ -94,7 +94,7 @@ export default function AboutPage() {
                       <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#ffde59] to-[#fad852] rounded-lg flex items-center justify-center shadow-lg border-2 sm:border-4 border-gray-900">
                         <span className="text-black text-xl sm:text-2xl font-bold">1</span>
                       </div>
-                      <div className="absolute w-px h-16 -top-16 hidden md:block"></div>
+                      <div className="absolute w-px h-16 bg-gray-600 -top-16 hidden md:block"></div>
                     </div>
 
                     {/* Content */}
