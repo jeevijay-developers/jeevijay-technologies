@@ -15,9 +15,9 @@ export const Footer = () => {
   return (
     <footer className="bg-black border-t border-zinc-900">
       <div className="max-w-7xl mx-auto p-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Logo & Description */}
-          <div>
+          <div className="col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <img 
                 src="/footer_logo.png" 
@@ -31,27 +31,29 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              {navigationLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Quick Links & Connect - Side by side on mobile */}
+          <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8 md:gap-12">
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-4">
+                Quick Links
+              </h3>
+              <ul className="space-y-3">
+                {navigationLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Connect */}
-          <div>
+            {/* Connect */}
+            <div>
             <h3 className="text-white font-semibold text-lg mb-4">Connect</h3>
             <div className="flex gap-4 mb-6">
               <a
@@ -97,6 +99,7 @@ export const Footer = () => {
                 </a>
               </p>
             </div>
+          </div>
           </div>
         </div>
 

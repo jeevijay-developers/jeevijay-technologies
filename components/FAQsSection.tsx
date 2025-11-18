@@ -2,8 +2,87 @@
 
 import { Accordion, AccordionItem } from "@heroui/accordion";
 import { FiChevronDown } from "react-icons/fi";
+import { useEffect, useRef } from "react";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const FAQsSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const accordionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const badge = headerRef.current.querySelector(".badge");
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(badge as Element, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.4,
+          }
+        );
+      }
+    }
+
+    // Accordion items staggered animation
+    if (accordionRef.current) {
+      const items = accordionRef.current.querySelectorAll("[data-slot='base']");
+      
+      items.forEach((item, index) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 30, x: -20 },
+          {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(accordionRef.current!, { start: "top 80%" }),
+            delay: 0.6 + index * 0.1,
+          }
+        );
+      });
+    }
+  }, []);
+
   const faqs = [
     {
       question: "How can AI automation help my business?",
@@ -36,8 +115,8 @@ export const FAQsSection = () => {
     <section className="py-20 bg-black">
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div ref={headerRef} className="text-center mb-16">
+          <span className="badge inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             FAQs
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -51,17 +130,18 @@ export const FAQsSection = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion
-          variant="splitted"
-          className="gap-4"
-          itemClasses={{
-            base: "bg-zinc-900/50 border border-zinc-800 rounded-xl px-6  hover:border-zinc-700 transition-colors",
-            title: "text-white font-semibold text-base md:text-lg",
-            trigger: "py-6",
-            content: "text-gray-400 text-base leading-relaxed pb-6",
-            indicator: "text-white",
-          }}
-        >
+        <div ref={accordionRef}>
+          <Accordion
+            variant="splitted"
+            className="gap-4"
+            itemClasses={{
+              base: "bg-zinc-900/50 border border-zinc-800 rounded-xl px-6  hover:border-zinc-700 transition-colors",
+              title: "text-white font-semibold text-base md:text-lg",
+              trigger: "py-6",
+              content: "text-gray-400 text-base leading-relaxed pb-6",
+              indicator: "text-white",
+            }}
+          >
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
@@ -73,6 +153,7 @@ export const FAQsSection = () => {
             </AccordionItem>
           ))}
         </Accordion>
+        </div>
       </div>
     </section>
   );

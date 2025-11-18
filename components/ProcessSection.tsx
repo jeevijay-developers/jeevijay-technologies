@@ -1,8 +1,115 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const ProcessSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swiped left
+      setCurrentSlide((prev) => (prev + 1) % steps.length);
+    }
+
+    if (touchStart - touchEnd < -75) {
+      // Swiped right
+      setCurrentSlide((prev) => (prev - 1 + steps.length) % steps.length);
+    }
+  };
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const badge = headerRef.current.querySelector(".badge");
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(badge as Element, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.4,
+          }
+        );
+      }
+    }
+
+    // Step cards staggered animation
+    stepRefs.current.forEach((step, index) => {
+      if (step) {
+        gsap.fromTo(
+          step,
+          { opacity: 0, y: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(step, { start: "top 80%" }),
+            delay: index * 0.1,
+          }
+        );
+      }
+    });
+
+    // Auto-scroll carousel for mobile
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % steps.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const steps = [
     {
       stepNumber: "Step 1",
@@ -72,8 +179,8 @@ def check_trigger(self, webhook):`,
     <section id="process" className="w-full py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div ref={headerRef} className="text-center mb-16">
+          <span className="badge inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Our Process
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -88,11 +195,57 @@ def check_trigger(self, webhook):`,
           </p>
         </div>
 
-        {/* Process Steps Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Mobile Carousel */}
+        <div
+          className="md:hidden relative overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {steps.map((step, index) => (
+              <div key={index} className="min-w-full px-2">
+                <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-6 border border-zinc-800">
+                  <p className="text-gray-500 text-xs font-medium mb-2">
+                    {step.stepNumber}
+                  </p>
+                  <h3 className="text-xl font-bold text-white mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {steps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-[#ffde59] w-6" : "bg-zinc-700"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6">
           {steps.map((step, index) => (
             <div
               key={index}
+              ref={(el) => {
+                stepRefs.current[index] = el;
+              }}
               className="bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
             >
               {/* Step Header */}

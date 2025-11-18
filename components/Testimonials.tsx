@@ -19,7 +19,7 @@ const Testimonials = () => {
         {/* Section Header */}
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-100 mb-4">
-            Our <span className="text-[#ffde59]">Locations</span>
+            Our Presence <span className="text-[#ffde59]">Across India</span>  
           </h2>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Serving clients across India from our strategic office locations
