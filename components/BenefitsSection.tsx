@@ -81,7 +81,6 @@ export const BenefitsSection = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-
                 {/* Content */}
                 <div className="flex-1">
                   {/* Title */}
