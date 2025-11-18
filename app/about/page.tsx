@@ -279,6 +279,96 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
+          {/* Our Team Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 0.85 }}
+            className="mb-16 py-12 md:py-32 lg:py-40"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 px-4">
+              Our <span className="text-[#ffde59]">Team</span>
+            </h2>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              {/* Team Member 1 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop"
+                    alt="Team Member"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">John Smith</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium">Senior Developer</p>
+              </motion.div>
+
+              {/* Team Member 2 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop"
+                    alt="Team Member"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Sarah Johnson</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium">UI/UX Designer</p>
+              </motion.div>
+
+              {/* Team Member 3 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop"
+                    alt="Team Member"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Michael Chen</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium">Project Manager</p>
+              </motion.div>
+
+              {/* Team Member 4 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
+              >
+                <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <img
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop"
+                    alt="Team Member"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Emily Davis</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium">Marketing Head</p>
+              </motion.div>
+            </div>
+          </motion.div>
+
           {/* Multi-City Presence */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
