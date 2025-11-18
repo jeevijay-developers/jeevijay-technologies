@@ -1,8 +1,105 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const ServicesSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const serviceRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const badge = headerRef.current.querySelector(".badge");
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(badge as Element, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.4,
+          }
+        );
+      }
+    }
+
+    // Service cards animation
+    serviceRefs.current.forEach((service, index) => {
+      if (service) {
+        const content = service.querySelector(".service-content");
+        const image = service.querySelector(".service-image");
+
+        if (content) {
+          gsap.fromTo(
+            content,
+            { opacity: 0, x: index % 2 === 0 ? -50 : 50, y: 30 },
+            {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              duration: DURATIONS.verySlow,
+              ease: "power2.out",
+              ...createScrollTrigger(service, { start: "top 80%" }),
+            }
+          );
+        }
+
+        if (image) {
+          gsap.fromTo(
+            image,
+            { opacity: 0, x: index % 2 === 0 ? 50 : -50, scale: 0.95 },
+            {
+              opacity: 1,
+              x: 0,
+              scale: 1,
+              duration: DURATIONS.verySlow,
+              ease: "power2.out",
+              ...createScrollTrigger(service, { start: "top 80%" }),
+              delay: 0.2,
+            }
+          );
+        }
+      }
+    });
+  }, []);
+
   const services = [
     {
       category: "App Development",
@@ -47,8 +144,8 @@ export const ServicesSection = () => {
     <section id="services" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div ref={headerRef} className="text-center mb-16">
+          <span className="badge inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -68,13 +165,16 @@ export const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
+              ref={(el) => {
+                serviceRefs.current[index] = el;
+              }}
               className={`grid md:grid-cols-2 gap-8 items-center ${
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
               {/* Content */}
               <div
-                className={`${
+                className={`service-content ${
                   index % 2 === 1 ? "md:order-2" : ""
                 } bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all duration-300`}
               >
@@ -101,7 +201,7 @@ export const ServicesSection = () => {
 
               {/* Image Display */}
               <div
-                className={`${
+                className={`service-image ${
                   index % 2 === 1 ? "md:order-1" : ""
                 } relative h-80 rounded-xl overflow-hidden flex items-center justify-center max-w-md mx-auto`}
               >

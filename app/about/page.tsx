@@ -4,6 +4,7 @@ import Testimonials from "@/components/Testimonials";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { FaLinkedin, FaInstagram } from "react-icons/fa6";
 
 export default function AboutPage() {
   const [mounted, setMounted] = useState(false);
@@ -52,9 +53,9 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="relative h-80 rounded-xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 z-10"></div>
+                <div className="absolute inset-0  z-10"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop"
+                  src="https://t4.ftcdn.net/jpg/04/67/97/95/360_F_467979573_PBejz9RgVw0Pw63g2KV89HeaGYhJPNjt.jpg"
                   alt="Jeevijay Technologies Journey"
                   className="w-full h-full object-cover"
                 />
@@ -62,6 +63,7 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
+          <div className="py-[80px] hidden md:block"></div>
           {/* Timeline Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -69,14 +71,14 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 md:mb-16 px-4">
+            <h2 className="text-2xl sm:text-3xl  md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 md:mb-16 px-4">
               Our Growth Timeline
             </h2>
             
             {/* Timeline Container */}
             <div className="relative">
               {/* Timeline Line - Horizontal for desktop, Vertical for mobile */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-700 md:hidden"></div>
+              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-700 hidden"></div>
               <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-700 hidden md:block"></div>
               
               {/* Timeline Items */}
@@ -192,6 +194,9 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
+          <div className="py-[115px] hidden md:block"></div>
+
+
           {/* Founder Profile Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -210,8 +215,8 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
                 {/* Image Section */}
                 <div className="order-2 md:order-1">
-                  <div className="relative h-150 rounded-xl overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 z-10"></div>
+                  <div className="relative h-64 sm:h-80 md:h-96 lg:h-150 rounded-xl overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0  z-10"></div>
                     <img
                       src="/sir.png"
                       alt="Vikas Patel - Founder"
@@ -220,15 +225,15 @@ export default function AboutPage() {
                   </div>
                   
                   {/* Professional Networks */}
-                  <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                    <div className="bg-[#ffde59] rounded-full px-4 py-2">
-                      <span className="text-black font-semibold text-sm">BNI Member</span>
+                  <div className="mt-6 flex flex-nowrap gap-2 sm:gap-4 justify-center">
+                    <div className="bg-[#ffde59] rounded-full px-2 py-1 sm:px-4 sm:py-2">
+                      <span className="text-black font-semibold text-xs sm:text-sm">BNI Member</span>
                     </div>
-                    <div className="bg-[#ffde59] rounded-full px-4 py-2">
-                      <span className="text-black font-semibold text-sm">JCI Network</span>
+                    <div className="bg-[#ffde59] rounded-full px-2 py-1 sm:px-4 sm:py-2">
+                      <span className="text-black font-semibold text-xs sm:text-sm">JCI Network</span>
                     </div>
-                    <div className="bg-[#ffde59] rounded-full px-4 py-2">
-                      <span className="text-black font-semibold text-sm">Corporate Trainer</span>
+                    <div className="bg-[#ffde59] rounded-full px-2 py-1 sm:px-4 sm:py-2">
+                      <span className="text-black font-semibold text-xs sm:text-sm">Corporate Trainer</span>
                     </div>
                   </div>
                 </div>
@@ -299,15 +304,33 @@ export default function AboutPage() {
                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0  z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop"
+                    src="/team/lakshya.jpg"
                     alt="Team Member"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 text-center">John Smith</h3>
-                <p className="text-[#ffde59] text-sm text-center font-medium">Senior Developer</p>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Lakshay Saxena</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium mb-3">Senior Developer</p>
+                <div className="flex justify-center gap-3">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaLinkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                </div>
               </motion.div>
 
               {/* Team Member 2 */}
@@ -318,15 +341,33 @@ export default function AboutPage() {
                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0  z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop"
+                    src="/team/zaid.jpg"
                     alt="Team Member"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 text-center">Sarah Johnson</h3>
-                <p className="text-[#ffde59] text-sm text-center font-medium">UI/UX Designer</p>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Zaid Khan</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium mb-3">Full Stack Developer</p>
+                <div className="flex justify-center gap-3">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaLinkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                </div>
               </motion.div>
 
               {/* Team Member 3 */}
@@ -337,15 +378,33 @@ export default function AboutPage() {
                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0  z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop"
+                    src="/team/tushar.jpeg"
                     alt="Team Member"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 text-center">Michael Chen</h3>
-                <p className="text-[#ffde59] text-sm text-center font-medium">Project Manager</p>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Tushar Dua</h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium mb-3">Project Manager</p>
+                <div className="flex justify-center gap-3">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaLinkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                </div>
               </motion.div>
 
               {/* Team Member 4 */}
@@ -356,15 +415,33 @@ export default function AboutPage() {
                 className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-gray-700/50 hover:border-[#ffde59]/50 transition-all duration-300 hover:scale-105 group"
               >
                 <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ffde59]/20 to-purple-600/20 z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0  z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
                   <img
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop"
+                    src="/team/vinita.jpeg"
                     alt="Team Member"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 text-center">Emily Davis</h3>
-                <p className="text-[#ffde59] text-sm text-center font-medium">Marketing Head</p>
+                <h3 className="text-xl font-bold text-white mb-2 text-center">Vinita </h3>
+                <p className="text-[#ffde59] text-sm text-center font-medium mb-3">Digital Marketing Head</p>
+                <div className="flex justify-center gap-3">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaLinkedin className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full border border-zinc-700 hover:border-[#ffde59] flex items-center justify-center text-gray-400 hover:text-white transition-all"
+                  >
+                    <FaInstagram className="w-4 h-4" />
+                  </a>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -376,32 +453,9 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 px-4">
-              Our Presence Across India
-            </h2>
             
             <Testimonials />
-            {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-              {[
-                { city: "Bangalore", icon: "🏢", description: "Tech Hub" },
-                { city: "Kota", icon: "🎓", description: "Education Center" },
-                { city: "Bhopal", icon: "🌆", description: "Central Operations" },
-                { city: "Jabalpur", icon: "🏛️", description: "Regional Office" },
-              ].map((location, index) => (
-                <motion.div
-                  key={location.city}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-xl p-4 sm:p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:scale-105"
-                >
-                  <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">{location.icon}</div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">{location.city}</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm">{location.description}</p>
-                </motion.div>
-              ))}
-            </div>
-             */}
+            
             <p className="text-gray-300 text-lg text-center mt-8 leading-relaxed max-w-4xl mx-auto">
               Today, we operate from strategic locations across India—Bangalore, Kota, Bhopal, and Jabalpur—enabling 
               us to serve clients nationally whilst maintaining the personalised attention and agility of a boutique consultancy.
@@ -422,7 +476,7 @@ export default function AboutPage() {
               Our team combines deep technical expertise with business acumen, ensuring every solution we deliver 
               generates measurable return on investment.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3  gap-6 sm:gap-8">
               <div className="text-center">
                 <div className="text-4xl sm:text-5xl font-bold text-white mb-2">200+</div>
                 <div className="text-gray-400 text-xs sm:text-sm">Projects Completed</div>

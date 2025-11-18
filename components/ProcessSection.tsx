@@ -1,8 +1,85 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const ProcessSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const badge = headerRef.current.querySelector(".badge");
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(badge as Element, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.4,
+          }
+        );
+      }
+    }
+
+    // Step cards staggered animation
+    stepRefs.current.forEach((step, index) => {
+      if (step) {
+        gsap.fromTo(
+          step,
+          { opacity: 0, y: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(step, { start: "top 80%" }),
+            delay: index * 0.1,
+          }
+        );
+      }
+    });
+  }, []);
+
   const steps = [
     {
       stepNumber: "Step 1",
@@ -72,8 +149,8 @@ def check_trigger(self, webhook):`,
     <section id="process" className="w-full py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div ref={headerRef} className="text-center mb-16">
+          <span className="badge inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Our Process
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -93,6 +170,9 @@ def check_trigger(self, webhook):`,
           {steps.map((step, index) => (
             <div
               key={index}
+              ref={(el) => {
+                stepRefs.current[index] = el;
+              }}
               className="bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-2xl p-8 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
             >
               {/* Step Header */}

@@ -1,8 +1,85 @@
 "use client";
 
 import { Card, CardBody } from "@heroui/card";
+import { useEffect, useRef } from "react";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const BenefitsSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const benefitRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const badge = headerRef.current.querySelector(".badge");
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(badge as Element, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.4,
+          }
+        );
+      }
+    }
+
+    // Benefit cards staggered animation
+    benefitRefs.current.forEach((benefit, index) => {
+      if (benefit) {
+        gsap.fromTo(
+          benefit,
+          { opacity: 0, y: 40, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(benefit, { start: "top 85%" }),
+            delay: index * 0.08,
+          }
+        );
+      }
+    });
+  }, []);
+
   const benefits = [
     {
       icon: "⚡",
@@ -46,8 +123,8 @@ export const BenefitsSection = () => {
     <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div ref={headerRef} className="text-center mb-16">
+          <span className="badge inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Benefits
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -65,27 +142,33 @@ export const BenefitsSection = () => {
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
-            <Card
+            <div
               key={index}
-              className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
+              ref={(el) => {
+                benefitRefs.current[index] = el;
+              }}
             >
-              <CardBody className="p-8">
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center text-2xl mb-6">
-                  {benefit.icon}
-                </div>
+              <Card
+                className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
+              >
+                <CardBody className="p-8">
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center text-2xl mb-6">
+                    {benefit.icon}
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {benefit.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    {benefit.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-gray-400 leading-relaxed">
-                  {benefit.description}
-                </p>
-              </CardBody>
-            </Card>
+                  {/* Description */}
+                  <p className="text-gray-400 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
           ))}
         </div>
       </div>

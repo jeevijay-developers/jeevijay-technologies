@@ -1,13 +1,105 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardBody, CardHeader } from "@heroui/card";
 import { Button } from "@heroui/button";
 import { Switch } from "@heroui/switch";
 import { FiCheck, FiZap, FiUsers, FiTrendingUp } from "react-icons/fi";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const badge = headerRef.current.querySelector(".badge");
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (badge) {
+        gsap.fromTo(
+          badge,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(badge as Element, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.4,
+          }
+        );
+      }
+    }
+
+    // Toggle switch animation
+    if (toggleRef.current) {
+      gsap.fromTo(
+        toggleRef.current,
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: DURATIONS.slow,
+          ease: "power2.out",
+          ...createScrollTrigger(toggleRef.current, { start: "top 85%" }),
+          delay: 0.6,
+        }
+      );
+    }
+
+    // Pricing cards staggered animation
+    cardRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(card, { start: "top 85%" }),
+            delay: index * 0.15,
+          }
+        );
+      }
+    });
+  }, []);
 
   const pricingPlans = [
     {
@@ -69,8 +161,8 @@ export const PricingSection = () => {
     <section id="pricing" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
+        <div ref={headerRef} className="text-center mb-12">
+          <span className="badge inline-block bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full mb-6">
             Pricing
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
@@ -84,7 +176,7 @@ export const PricingSection = () => {
           </p>
 
           {/* Toggle Switch */}
-          <div className="flex items-center justify-center gap-4">
+          <div ref={toggleRef} className="flex items-center justify-center gap-4">
             <span
               className={`text-base font-medium transition-colors ${
                 !isAnnual ? "text-white" : "text-gray-500"
@@ -113,14 +205,19 @@ export const PricingSection = () => {
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {pricingPlans.map((plan, index) => (
-            <Card
+            <div
               key={index}
-              className={`bg-gradient-to-br ${
-                plan.popular
-                  ? "from-[#ffde59]/20 to-zinc-950 border-2 border-[#ffde59]"
-                  : "from-zinc-900 to-zinc-950 border border-zinc-800"
-              } relative`}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
             >
+              <Card
+                className={`bg-gradient-to-br ${
+                  plan.popular
+                    ? "from-[#ffde59]/20 to-zinc-950 border-2 border-[#ffde59]"
+                    : "from-zinc-900 to-zinc-950 border border-zinc-800"
+                } relative`}
+              >
               {plan.popular && (
                 <div className="absolute left-1/2 -translate-x-1/2">
                   <span className="bg-[#ffde59] text-black text-sm font-medium px-4 py-1 rounded-full">
@@ -185,6 +282,7 @@ export const PricingSection = () => {
                 </div>
               </CardBody>
             </Card>
+            </div>
           ))}
         </div>
       </div>

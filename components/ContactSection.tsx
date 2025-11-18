@@ -4,8 +4,104 @@ import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
 import CallButton from "./CallButton";
 import { FaLinkedin, FaInstagram, FaFacebookF } from "react-icons/fa6";
+import { useEffect, useRef } from "react";
+import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const ContactSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const socialRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Header animation
+    if (headerRef.current) {
+      const heading = headerRef.current.querySelector("h2");
+      const description = headerRef.current.querySelector("p");
+
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.verySlow,
+            ease: "power2.out",
+            ...createScrollTrigger(heading, { start: "top 85%" }),
+          }
+        );
+      }
+
+      if (description) {
+        gsap.fromTo(
+          description,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: DURATIONS.slow,
+            ease: "power2.out",
+            ...createScrollTrigger(description, { start: "top 85%" }),
+            delay: 0.2,
+          }
+        );
+      }
+    }
+
+    // Form animation
+    if (formRef.current) {
+      gsap.fromTo(
+        formRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: DURATIONS.verySlow,
+          ease: "power2.out",
+          ...createScrollTrigger(formRef.current, { start: "top 80%" }),
+          delay: 0.3,
+        }
+      );
+    }
+
+    // Social links animation
+    if (socialRef.current) {
+      const links = socialRef.current.querySelectorAll("a");
+      
+      links.forEach((link, index) => {
+        gsap.fromTo(
+          link,
+          { opacity: 0, scale: 0.8 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: DURATIONS.slow,
+            ease: "back.out(1.7)",
+            ...createScrollTrigger(socialRef.current!, { start: "top 80%" }),
+            delay: 0.5 + index * 0.1,
+          }
+        );
+      });
+    }
+
+    // CTA card animation
+    if (ctaRef.current) {
+      gsap.fromTo(
+        ctaRef.current,
+        { opacity: 0, y: 50, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: DURATIONS.verySlow,
+          ease: "power2.out",
+          ...createScrollTrigger(ctaRef.current, { start: "top 85%" }),
+        }
+      );
+    }
+  }, []);
+
   return (
     <section id="contact" className="py-20 bg-black relative overflow-hidden"> 
       {/* Decorative line */}
@@ -17,7 +113,7 @@ export const ContactSection = () => {
 
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-12 mt-16">
+        <div ref={headerRef} className="text-center mb-12 mt-16">
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-4">
             Ready to Automate Smarter?
           </h2>
@@ -27,7 +123,7 @@ export const ContactSection = () => {
         </div>
 
         {/* Contact Form */}
-        <form className="space-y-6 mb-6">
+        <form ref={formRef} className="space-y-6 mb-6">
           <div className="grid md:grid-cols-2 gap-6">
             {/* Name Input */}
             <Input
@@ -88,7 +184,7 @@ export const ContactSection = () => {
         </form>
 
         {/* Social Links */}
-        <div className="flex justify-center gap-6 mb-8">
+        <div ref={socialRef} className="flex justify-center gap-6 mb-8">
           <a
             href="https://linkedin.com"
             target="_blank"
@@ -116,7 +212,7 @@ export const ContactSection = () => {
         </div>
 
         {/* CTA Card */}
-        <div className="bg-gradient-to-br from-[#ffde59]/20 via-zinc-900 to-zinc-950 rounded-2xl border border-gray-900/50 p-12 text-center my-[8rem]">
+        <div ref={ctaRef} className="bg-gradient-to-br from-[#ffde59]/20 via-zinc-900 to-zinc-950 rounded-2xl border border-gray-900/50 p-12 text-center my-[8rem]">
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Let AI do the Work so
             <br />
