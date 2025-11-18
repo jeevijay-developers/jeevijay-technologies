@@ -16,7 +16,7 @@ export const ProcessSection = () => {
         "Success Metrics",
         "Strategic Planning",
       ],
-      image: "/images/smart-analyzing.png",
+      image: "/process/img1.png",
     },
     {
       stepNumber: "Step 2",
@@ -29,7 +29,7 @@ export const ProcessSection = () => {
         self.execute()
         
 def check_trigger(self, webhook):`,
-      image: "/images/ai-development.png",
+      image: "/process/img2.png",
     },
     {
       stepNumber: "Step 3",
@@ -40,7 +40,7 @@ def check_trigger(self, webhook):`,
         { name: "Our solution", icon: "🔮" },
         { name: "Your stack", icon: "⚙️" },
       ],
-      image: "/images/seamless-integration.png",
+      image: "/process/img3.png",
     },
     {
       stepNumber: "Step 4",
@@ -64,7 +64,7 @@ def check_trigger(self, webhook):`,
           status: "check",
         },
       ],
-      image: "/images/continuous-optimization.png",
+      image: "/process/img4.png",
     },
   ];
 
@@ -109,47 +109,49 @@ def check_trigger(self, webhook):`,
               </div>
 
               {/* Visual Content */}
-              <div className="relative h-64 bg-black/40 rounded-xl border flex justify-center items-center border-zinc-800 overflow-hidden">
+              <div className="relative h-64 rounded-xl overflow-hidden flex items-end">
                 {/* Step 1 - Checklist */}
                 {index === 0 && step.features && (
                   <Image
-                    src={"/process/image1.png"}
+                    src={"/process/img1.png"}
                     alt="step-1"
                     width={500}
                     height={256}
+                    className="w-full h-full object-cover"
                   />
                 )}
 
                 {/* Step 2 - Code Snippet */}
                 {index === 1 && step.codeSnippet && (
                   <Image
-                    src={"/process/image2.png"}
+                    src={"/process/img2.png"}
                     alt="step-2"
                     width={500}
-                    height={256}
+                    height={300}
+                    className="w-full h-full object-cover"
                   />
                 )}
 
                 {/* Step 3 - Integration Icons */}
                 {index === 2 && step.integrations && (
                   <Image
-                    src={"/process/image3.png"}
+                    src={"/process/img3.png"}
                     alt="step-3"
                     width={500}
                     height={256}
+                    className="w-full h-full object-cover"
                   />
                 )}
 
                 {/* Step 4 - Metrics List */}
                 {index === 3 && step.metrics && (
-                  <div className="space-y-4">
-                    <Image
-                      src={"/process/image4.png"}
-                      alt="step-4"
-                      width={500}
-                      height={256}
-                    />
-                  </div>
+                  <Image
+                    src={"/process/img4.png"}
+                    alt="step-4"
+                    width={500}
+                    height={256}
+                    className="w-full h-full object-cover"
+                  />
                 )}
               </div>
             </div>
