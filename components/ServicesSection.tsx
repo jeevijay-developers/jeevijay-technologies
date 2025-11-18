@@ -34,7 +34,6 @@ export const ServicesSection = () => {
       ],
       image: "/services/web_dev.png",
     },
-
     {
       category: "UI/UX Design",
       title: "Beautiful Designs That Users Love",
