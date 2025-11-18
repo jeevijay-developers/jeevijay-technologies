@@ -1,42 +1,41 @@
 "use client";
 
 import { Card, CardBody } from "@heroui/card";
-import Image from "next/image";
 
 export const BenefitsSection = () => {
   const benefits = [
     {
-      icon: "/benefits/img1.png",
+      icon: "⚡",
       title: "8 Industry Verticals",
       description:
         "Deep domain expertise across Healthcare, Education, FMCG, E-commerce, Logistics, Manufacturing, Finance, and Hospitality sectors.",
     },
     {
-      icon: "/benefits/img2.png",
+      icon: "😊",
       title: "95+ PageSpeed Score",
       description:
         "Lightning-fast performance with 2.5s average page load time, optimised for Indian internet infrastructure and mobile networks.",
     },
     {
-      icon: "/benefits/img3.png",
+      icon: "🕐",
       title: "100% Mobile Responsive",
       description:
         "Flawless experience across all devices, screen sizes, and mobile browsers with responsive design excellence.",
     },
     {
-      icon: "/benefits/img4.png",
+      icon: "💰",
       title: "350% Average ROAS",
       description:
         "Three-and-half rupees returned for every rupee invested in paid advertising campaigns with data-driven optimisation.",
     },
     {
-      icon: "/benefits/img5.png",
+      icon: "🧠",
       title: "67% Lead Cost Reduction",
       description:
         "Continuous optimisation reducing customer acquisition costs by two-thirds through strategic campaign management.",
     },
     {
-      icon: "/benefits/img6.png",
+      icon: "📈",
       title: "89% Conversion Rate",
       description:
         "High-converting landing pages turning cold traffic into qualified sales opportunities with strategic design.",
@@ -70,29 +69,21 @@ export const BenefitsSection = () => {
               key={index}
               className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
             >
-              <CardBody className="p-8 flex flex-row gap-4">
+              <CardBody className="p-8">
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                  <Image
-                    src={benefit.icon}
-                    alt={benefit.title}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center text-2xl mb-6">
+                  {benefit.icon}
                 </div>
-                {/* Content */}
-                <div className="flex-1">
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    {benefit.title}
-                  </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-400 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
+                {/* Title */}
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {benefit.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-400 leading-relaxed">
+                  {benefit.description}
+                </p>
               </CardBody>
             </Card>
           ))}
