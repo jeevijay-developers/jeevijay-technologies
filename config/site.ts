@@ -6,7 +6,7 @@ export const siteConfig = {
   navItems: [
     {
       label: "Home",
-      href: "#home",
+      href: "/#home",
     },
     {
       label: "About",
@@ -14,25 +14,25 @@ export const siteConfig = {
     },
     {
       label: "Services",
-      href: "#services",
+      href: "/#services",
     },
     {
       label: "Process",
-      href: "#process",
+      href: "/#process",
     },
     {
       label: "Plans",
-      href: "/plans",
+      href: "/#pricing",
     },
     {
       label: "Contact",
-      href: "/contact",
+      href: "/#contact",
     },
   ],
   navMenuItems: [
     {
       label: "Home",
-      href: "#home",
+      href: "/",
     },
     {
       label: "About",
@@ -40,19 +40,19 @@ export const siteConfig = {
     },
     {
       label: "Services",
-      href: "#services",
+      href: "/#services",
     },
     {
       label: "Process",
-      href: "#process",
+      href: "/#process",
     },
     {
       label: "Plans",
-      href: "/plans",
+      href: "/#pricing",
     },
     {
       label: "Contact",
-      href: "/contact",
+      href: "/#contact",
     },
   ],
   links: {

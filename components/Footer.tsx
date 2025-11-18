@@ -8,7 +8,6 @@ export const Footer = () => {
     { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
     { name: "Process", href: "#process" },
-    { name: "Benefits", href: "#benefits" },
     { name: "Pricing", href: "#pricing" },
     { name: "Contact", href: "#contact" },
   ];
@@ -20,12 +19,11 @@ export const Footer = () => {
           {/* Logo & Description */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">JV</span>
-              </div>
-              <span className="text-white font-bold text-xl">
-                Jeevijay Technologies
-              </span>
+              <img 
+                src="/footer_logo.png" 
+                alt="Jeevijay Technologies"
+                className="h-10 object-contain"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Intelligent automation solutions that help businesses work

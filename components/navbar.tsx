@@ -36,14 +36,27 @@ export const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
+    setIsMobileMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      // Handle anchor links (e.g., /#services)
+      const hash = href.substring(1); // Remove the leading '/'
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // If element doesn't exist, navigate to home page with hash
+        window.location.href = href;
+      }
+    } else if (href.startsWith('#')) {
+      // Handle hash-only links
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setIsMobileMenuOpen(false);
       }
     } else {
-      setIsMobileMenuOpen(false);
+      // Handle regular page navigation
+      window.location.href = href;
     }
   };
 

@@ -7,7 +7,7 @@ import { FaLinkedin, FaInstagram, FaFacebookF } from "react-icons/fa6";
 
 export const ContactSection = () => {
   return (
-    <section className="py-20 bg-black relative overflow-hidden">
+    <section id="contact" className="py-20 bg-black relative overflow-hidden"> 
       {/* Decorative line */}
       <div className="absolute top-12 left-1/2 -translate-x-1/2 flex items-center gap-4 opacity-50">
         <div className="h-px w-32 bg-gradient-to-r from-transparent to-gray-600"></div>
