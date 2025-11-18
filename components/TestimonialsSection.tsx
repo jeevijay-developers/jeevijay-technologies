@@ -2,7 +2,6 @@
 
 import { Card, CardBody } from "@heroui/card";
 import { FiStar } from "react-icons/fi";
-import Image from "next/image";
 
 export const TestimonialsSection = () => {
   const testimonials = [
@@ -12,7 +11,7 @@ export const TestimonialsSection = () => {
         "Jeevijay Technologies transformed our patient management system with intuitive design and robust functionality. The telemedicine platform they built has significantly improved our healthcare delivery.",
       name: "Dr. Rajesh Kumar",
       title: "Medical Director, Apollo HealthCare",
-      avatar: "/testimonials/test1.png",
+      avatar: "/avatars/james.jpg",
     },
     {
       rating: 5,
@@ -20,7 +19,7 @@ export const TestimonialsSection = () => {
         "The e-commerce platform they developed increased our conversion rate by 89%. Their SEO expertise brought us to the first page of Google within three months. Outstanding technical excellence.",
       name: "Priya Sharma",
       title: "Founder, StyleCraft Fashion",
-      avatar: "/testimonials/test2.png",
+      avatar: "/avatars/sophia.jpg",
     },
     {
       rating: 5,
@@ -28,7 +27,7 @@ export const TestimonialsSection = () => {
         "Our logistics operations improved dramatically with the fleet management system. Real-time tracking and route optimisation reduced delivery times by 40% and operational costs significantly.",
       name: "Amit Patel",
       title: "Operations Head, SwiftMove Logistics",
-      avatar: "/testimonials/test3.png",
+      avatar: "/avatars/david.jpg",
     },
     {
       rating: 5,
@@ -36,7 +35,7 @@ export const TestimonialsSection = () => {
         "The learning management system they built handles 50,000+ students seamlessly. Their attention to detail, technical expertise, and ongoing support has been exemplary throughout our partnership.",
       name: "Meera Reddy",
       title: "Director, EduTech Academy",
-      avatar: "/testimonials/test4.png",
+      avatar: "/avatars/emily.jpg",
     },
   ];
 
@@ -81,15 +80,11 @@ export const TestimonialsSection = () => {
 
                 {/* Author Info */}
                 <div className="flex items-center gap-4">
-                  {/* Avatar */}
-                  <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-cover"
-                    />
+                  {/* Avatar Placeholder */}
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ffde59] to-[#e6c750] flex items-center justify-center flex-shrink-0">
+                    <span className="text-black font-semibold text-lg">
+                      {testimonial.name.charAt(0)}
+                    </span>
                   </div>
 
                   {/* Name and Title */}
