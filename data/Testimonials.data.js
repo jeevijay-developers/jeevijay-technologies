@@ -3,7 +3,7 @@ export const testimonials = [
     id: 1,
     city: "Kota",
     image: "/kota.png",
-    address: "22, Second Floor, Behind Modern Petrol Pump, Aerodrome, Kota, Rajasthan 324007"
+    address: "22, Second Floor, Behind Modern Petrol Pump, Aerodrome, Kota, Rajasthan 324007."
   },
   {
     id: 2,
