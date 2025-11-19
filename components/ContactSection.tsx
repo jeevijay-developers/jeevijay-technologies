@@ -68,7 +68,7 @@ export const ContactSection = () => {
     // Social links animation
     if (socialRef.current) {
       const links = socialRef.current.querySelectorAll("a");
-      
+
       links.forEach((link, index) => {
         gsap.fromTo(
           link,
@@ -103,7 +103,7 @@ export const ContactSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-20 bg-black relative overflow-hidden"> 
+    <section id="contact" className="py-20 bg-black relative overflow-hidden">
       {/* Decorative line */}
       <div className="absolute top-12 left-1/2 -translate-x-1/2 flex items-center gap-4 opacity-50">
         <div className="h-px w-32 bg-gradient-to-r from-transparent to-gray-600"></div>
@@ -212,13 +212,14 @@ export const ContactSection = () => {
         </div>
 
         {/* CTA Card */}
-        <div ref={ctaRef} className="bg-gradient-to-br from-[#ffde59]/20 via-zinc-900 to-zinc-950 rounded-2xl border border-gray-900/50 p-12 text-center my-[8rem]">
+        <div
+          ref={ctaRef}
+          className="bg-gradient-to-br from-[#ffde59]/20 via-zinc-900 to-zinc-950 rounded-2xl border border-gray-900/50 p-8 md:p-12 text-center my-[8rem]"
+        >
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Let AI do the Work so
-            <br />
-            you can Scale Faster
+            Let AI do the Work so you can Scale Faster
           </h3>
-          <p className="text-gray-400 text-lg mb-8">
+          <p className="text-gray-400 text-md md:text-lg mb-8">
             Book a Call Today and Start Automating
           </p>
           <div className="flex justify-center">

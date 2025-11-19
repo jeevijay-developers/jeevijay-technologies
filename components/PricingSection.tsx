@@ -12,6 +12,31 @@ export const PricingSection = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swiped left
+      setCurrentSlide((prev) => (prev + 1) % pricingPlans.length);
+    }
+
+    if (touchStart - touchEnd < -75) {
+      // Swiped right
+      setCurrentSlide(
+        (prev) => (prev - 1 + pricingPlans.length) % pricingPlans.length
+      );
+    }
+  };
 
   useEffect(() => {
     // Header animation
@@ -99,6 +124,13 @@ export const PricingSection = () => {
         );
       }
     });
+
+    // Auto-scroll carousel for mobile
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % pricingPlans.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const pricingPlans = [
@@ -176,7 +208,10 @@ export const PricingSection = () => {
           </p>
 
           {/* Toggle Switch */}
-          <div ref={toggleRef} className="flex items-center justify-center gap-4">
+          <div
+            ref={toggleRef}
+            className="flex items-center justify-center gap-4"
+          >
             <span
               className={`text-base font-medium transition-colors ${
                 !isAnnual ? "text-white" : "text-gray-500"
@@ -202,8 +237,115 @@ export const PricingSection = () => {
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Mobile Carousel */}
+        <div
+          className="md:hidden relative overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {pricingPlans.map((plan, index) => (
+              <div key={index} className="min-w-full px-2">
+                <Card
+                  className={`bg-gradient-to-br ${
+                    plan.popular
+                      ? "from-[#ffde59]/20 to-zinc-950 border-2 border-[#ffde59]"
+                      : "from-zinc-900 to-zinc-950 border border-zinc-800"
+                  } relative`}
+                >
+                  {plan.popular && (
+                    <div className="absolute left-1/2 -translate-x-1/2">
+                      <span className="bg-[#ffde59] text-black text-xs font-medium px-3 py-1 rounded-full">
+                        Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <CardHeader className="flex-col items-start gap-2 pb-4 pt-6">
+                    {/* Icon */}
+                    <div className="w-10 h-10 rounded-lg bg-[#ffde59]/20 flex items-center justify-center text-[#ffde59]">
+                      {plan.icon}
+                    </div>
+
+                    {/* Plan Name */}
+                    <h3 className="text-xl font-bold text-white">
+                      {plan.name}
+                    </h3>
+
+                    {/* Price */}
+                    <div className="flex items-baseline gap-1">
+                      {plan.price ? (
+                        <span className="text-3xl font-bold text-white">
+                          {plan.price}
+                        </span>
+                      ) : (
+                        <>
+                          <span className="text-3xl font-bold text-white">
+                            ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                          </span>
+                          <span className="text-gray-400 text-sm">/month</span>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-400 text-xs">{plan.description}</p>
+                  </CardHeader>
+
+                  <CardBody className="pt-0">
+                    {/* CTA Button */}
+                    <Button
+                      className={`w-full mb-4 font-medium text-sm ${
+                        plan.buttonVariant === "solid"
+                          ? "bg-[#ffde59] hover:bg-[#e6c750] text-black"
+                          : "border-2 border-zinc-700 hover:border-zinc-600 text-white bg-transparent"
+                      }`}
+                      size="md"
+                    >
+                      {plan.buttonText}
+                    </Button>
+
+                    {/* Features List */}
+                    <div className="space-y-2">
+                      <p className="text-white font-semibold text-xs mb-2">
+                        What's included:
+                      </p>
+                      {plan.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <FiCheck className="w-4 h-4 text-[#ffde59] flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300 text-xs">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {pricingPlans.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-[#ffde59] w-6" : "bg-zinc-700"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Pricing Cards */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
@@ -218,70 +360,70 @@ export const PricingSection = () => {
                     : "from-zinc-900 to-zinc-950 border border-zinc-800"
                 } relative`}
               >
-              {plan.popular && (
-                <div className="absolute left-1/2 -translate-x-1/2">
-                  <span className="bg-[#ffde59] text-black text-sm font-medium px-4 py-1 rounded-full">
-                    Popular
-                  </span>
-                </div>
-              )}
-
-              <CardHeader className="flex-col items-start gap-3 pb-6 pt-8">
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-[#ffde59]/20 flex items-center justify-center text-[#ffde59]">
-                  {plan.icon}
-                </div>
-
-                {/* Plan Name */}
-                <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-1">
-                  {plan.price ? (
-                    <span className="text-4xl font-bold text-white">
-                      {plan.price}
+                {plan.popular && (
+                  <div className="absolute left-1/2 -translate-x-1/2">
+                    <span className="bg-[#ffde59] text-black text-sm font-medium px-4 py-1 rounded-full">
+                      Popular
                     </span>
-                  ) : (
-                    <>
+                  </div>
+                )}
+
+                <CardHeader className="flex-col items-start gap-3 pb-6 pt-8">
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-lg bg-[#ffde59]/20 flex items-center justify-center text-[#ffde59]">
+                    {plan.icon}
+                  </div>
+
+                  {/* Plan Name */}
+                  <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+
+                  {/* Price */}
+                  <div className="flex items-baseline gap-1">
+                    {plan.price ? (
                       <span className="text-4xl font-bold text-white">
-                        ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                        {plan.price}
                       </span>
-                      <span className="text-gray-400 text-base">/month</span>
-                    </>
-                  )}
-                </div>
+                    ) : (
+                      <>
+                        <span className="text-4xl font-bold text-white">
+                          ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                        </span>
+                        <span className="text-gray-400 text-base">/month</span>
+                      </>
+                    )}
+                  </div>
 
-                {/* Description */}
-                <p className="text-gray-400 text-sm">{plan.description}</p>
-              </CardHeader>
+                  {/* Description */}
+                  <p className="text-gray-400 text-sm">{plan.description}</p>
+                </CardHeader>
 
-              <CardBody className="pt-0">
-                {/* CTA Button */}
-                <Button
-                  className={`w-full mb-6 font-medium ${
-                    plan.buttonVariant === "solid"
-                      ? "bg-[#ffde59] hover:bg-[#e6c750] text-black"
-                      : "border-2 border-zinc-700 hover:border-zinc-600 text-white bg-transparent"
-                  }`}
-                  size="lg"
-                >
-                  {plan.buttonText}
-                </Button>
+                <CardBody className="pt-0">
+                  {/* CTA Button */}
+                  <Button
+                    className={`w-full mb-6 font-medium ${
+                      plan.buttonVariant === "solid"
+                        ? "bg-[#ffde59] hover:bg-[#e6c750] text-black"
+                        : "border-2 border-zinc-700 hover:border-zinc-600 text-white bg-transparent"
+                    }`}
+                    size="lg"
+                  >
+                    {plan.buttonText}
+                  </Button>
 
-                {/* Features List */}
-                <div className="space-y-3">
-                  <p className="text-white font-semibold text-sm mb-3">
-                    What's included:
-                  </p>
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <FiCheck className="w-5 h-5 text-[#ffde59] flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-300 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardBody>
-            </Card>
+                  {/* Features List */}
+                  <div className="space-y-3">
+                    <p className="text-white font-semibold text-sm mb-3">
+                      What's included:
+                    </p>
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <FiCheck className="w-5 h-5 text-[#ffde59] flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardBody>
+              </Card>
             </div>
           ))}
         </div>

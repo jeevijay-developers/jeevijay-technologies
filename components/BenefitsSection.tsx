@@ -1,12 +1,36 @@
 "use client";
 
 import { Card, CardBody } from "@heroui/card";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
+import Image from "next/image";
 
 export const BenefitsSection = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const benefitRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swiped left
+      setCurrentSlide((prev) => (prev + 1) % benefits.length);
+    }
+
+    if (touchStart - touchEnd < -75) {
+      // Swiped right
+      setCurrentSlide((prev) => (prev - 1 + benefits.length) % benefits.length);
+    }
+  };
 
   useEffect(() => {
     // Header animation
@@ -78,41 +102,48 @@ export const BenefitsSection = () => {
         );
       }
     });
+
+    // Auto-scroll carousel for mobile
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % benefits.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const benefits = [
     {
-      icon: "⚡",
+      icon: "/benefits/img1.png",
       title: "8 Industry Verticals",
       description:
         "Deep domain expertise across Healthcare, Education, FMCG, E-commerce, Logistics, Manufacturing, Finance, and Hospitality sectors.",
     },
     {
-      icon: "😊",
+      icon: "/benefits/img2.png",
       title: "95+ PageSpeed Score",
       description:
         "Lightning-fast performance with 2.5s average page load time, optimised for Indian internet infrastructure and mobile networks.",
     },
     {
-      icon: "🕐",
+      icon: "/benefits/img3.png",
       title: "100% Mobile Responsive",
       description:
         "Flawless experience across all devices, screen sizes, and mobile browsers with responsive design excellence.",
     },
     {
-      icon: "💰",
+      icon: "/benefits/img4.png",
       title: "350% Average ROAS",
       description:
         "Three-and-half rupees returned for every rupee invested in paid advertising campaigns with data-driven optimisation.",
     },
     {
-      icon: "🧠",
+      icon: "/benefits/img5.png",
       title: "67% Lead Cost Reduction",
       description:
         "Continuous optimisation reducing customer acquisition costs by two-thirds through strategic campaign management.",
     },
     {
-      icon: "📈",
+      icon: "/benefits/img6.png",
       title: "89% Conversion Rate",
       description:
         "High-converting landing pages turning cold traffic into qualified sales opportunities with strategic design.",
@@ -139,8 +170,67 @@ export const BenefitsSection = () => {
           </p>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile Carousel */}
+        <div
+          className="md:hidden relative overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {benefits.map((benefit, index) => (
+              <div key={index} className="min-w-full px-2">
+                <Card className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800">
+                  <CardBody className="p-6 flex flex-row gap-3">
+                    {/* Icon */}
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={benefit.icon}
+                        alt={benefit.title}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      {/* Title */}
+                      <h3 className="text-lg font-bold text-white mb-2">
+                        {benefit.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {benefits.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-[#ffde59] w-6" : "bg-zinc-700"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div
               key={index}
@@ -148,24 +238,31 @@ export const BenefitsSection = () => {
                 benefitRefs.current[index] = el;
               }}
             >
-              <Card
-                className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
-              >
-                <CardBody className="p-8">
+              <Card className="bg-gradient-to-br from-transparent to-[#ffde59]/10 border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
+                <CardBody className="p-8 flex flex-row gap-4">
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-lg bg-zinc-800/50 flex items-center justify-center text-2xl mb-6">
-                    {benefit.icon}
+                  <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src={benefit.icon}
+                      alt={benefit.title}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-4">
-                    {benefit.title}
-                  </h3>
+                  {/* Content */}
+                  <div className="flex-1">
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-white mb-3">
+                      {benefit.title}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-400 leading-relaxed">
-                    {benefit.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-gray-400 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </CardBody>
               </Card>
             </div>

@@ -90,7 +90,10 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-[2] max-w-7xl mx-auto px-6 text-center">
         {/* SEO Badge */}
-        <div ref={badgeRef} className="inline-flex items-center justify-center mb-8 opacity-0">
+        <div
+          ref={badgeRef}
+          className="inline-flex items-center justify-center mb-8 opacity-0"
+        >
           <span className="bg-[#ffde59] text-black text-sm font-medium px-4 py-2 rounded-full">
             India's Premium Tech Company
           </span>
@@ -116,12 +119,15 @@ export const HeroSection = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div ref={buttonsRef} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div
+          ref={buttonsRef}
+          className="flex flex-row items-center justify-center gap-4"
+        >
           <Button
             as={NextLink}
             href="/contact"
             size="lg"
-            className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-8 py-6 text-base rounded-lg transition-all opacity-0"
+            className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-8 py-6 text-[14px] sm:text-base rounded-lg transition-all opacity-0"
           >
             Get in touch →
           </Button>
@@ -130,7 +136,7 @@ export const HeroSection = () => {
             href="/#services"
             size="lg"
             variant="bordered"
-            className="border-2 border-white/20 text-white hover:bg-white/10 font-medium px-8 py-6 text-base rounded-lg transition-all opacity-0"
+            className="border-2 border-white/20 text-white hover:bg-white/10 font-medium px-8 py-6 text-[14px] sm:text-base rounded-lg transition-all opacity-0"
           >
             View services
           </Button>

@@ -4,6 +4,7 @@ import { Card, CardBody } from "@heroui/card";
 import { FiStar } from "react-icons/fi";
 import { useEffect, useRef } from "react";
 import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
+import Image from "next/image";
 
 export const TestimonialsSection = () => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -88,7 +89,7 @@ export const TestimonialsSection = () => {
         "Jeevijay Technologies transformed our patient management system with intuitive design and robust functionality. The telemedicine platform they built has significantly improved our healthcare delivery.",
       name: "Dr. Rajesh Kumar",
       title: "Medical Director, Apollo HealthCare",
-      avatar: "/avatars/james.jpg",
+      avatar: "/testimonial/test1.png",
     },
     {
       rating: 5,
@@ -96,7 +97,7 @@ export const TestimonialsSection = () => {
         "The e-commerce platform they developed increased our conversion rate by 89%. Their SEO expertise brought us to the first page of Google within three months. Outstanding technical excellence.",
       name: "Priya Sharma",
       title: "Founder, StyleCraft Fashion",
-      avatar: "/avatars/sophia.jpg",
+      avatar: "/testimonial/test2.png",
     },
     {
       rating: 5,
@@ -104,7 +105,7 @@ export const TestimonialsSection = () => {
         "Our logistics operations improved dramatically with the fleet management system. Real-time tracking and route optimisation reduced delivery times by 40% and operational costs significantly.",
       name: "Amit Patel",
       title: "Operations Head, SwiftMove Logistics",
-      avatar: "/avatars/david.jpg",
+      avatar: "/testimonial/test3.png",
     },
     {
       rating: 5,
@@ -112,7 +113,7 @@ export const TestimonialsSection = () => {
         "The learning management system they built handles 50,000+ students seamlessly. Their attention to detail, technical expertise, and ongoing support has been exemplary throughout our partnership.",
       name: "Meera Reddy",
       title: "Director, EduTech Academy",
-      avatar: "/avatars/emily.jpg",
+      avatar: "/testimonial/test4.png",
     },
   ];
 
@@ -144,41 +145,48 @@ export const TestimonialsSection = () => {
                 testimonialRefs.current[index] = el;
               }}
             >
-              <Card
-                className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all duration-300"
-              >
-              <CardBody className="p-8">
-                {/* Star Rating */}
-                <div className="flex gap-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FiStar key={i} className="w-5 h-5 fill-white text-white" />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="text-gray-300 text-base leading-relaxed mb-8">
-                  "{testimonial.quote}"
-                </p>
-
-                {/* Author Info */}
-                <div className="flex items-center gap-4">
-                  {/* Avatar Placeholder */}
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ffde59] to-[#e6c750] flex items-center justify-center flex-shrink-0">
-                    <span className="text-black font-semibold text-lg">
-                      {testimonial.name.charAt(0)}
-                    </span>
+              <Card className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800 hover:border-zinc-700 transition-all duration-300">
+                <CardBody className="p-8">
+                  {/* Star Rating */}
+                  <div className="flex gap-1 mb-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <FiStar
+                        key={i}
+                        className="w-5 h-5 fill-white text-white"
+                      />
+                    ))}
                   </div>
 
-                  {/* Name and Title */}
-                  <div>
-                    <p className="text-white font-semibold text-base">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-gray-400 text-sm">{testimonial.title}</p>
+                  {/* Quote */}
+                  <p className="text-gray-300 text-base leading-relaxed mb-8">
+                    "{testimonial.quote}"
+                  </p>
+
+                  {/* Author Info */}
+                  <div className="flex items-center gap-4">
+                    {/* Avatar */}
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Name and Title */}
+                    <div>
+                      <p className="text-white font-semibold text-base">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-gray-400 text-sm">
+                        {testimonial.title}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </CardBody>
-            </Card>
+                </CardBody>
+              </Card>
             </div>
           ))}
         </div>
