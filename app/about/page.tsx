@@ -343,7 +343,7 @@ export default function AboutPage() {
                 <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden">
                   <div className="absolute inset-0  z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
                   <img
-                    src="/team/zaid.jpg"
+                    src="/team/zaid.JPG"
                     alt="Team Member"
                     className="w-full h-full object-cover"
                   />
