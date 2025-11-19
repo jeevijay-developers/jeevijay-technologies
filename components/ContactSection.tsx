@@ -1,54 +1,17 @@
 "use client";
 
-import { Button } from "@heroui/button";
-import { Input, Textarea } from "@heroui/input";
 import CallButton from "./CallButton";
+import ContactForm from "./contactForm";
 import { FaLinkedin, FaInstagram, FaFacebookF } from "react-icons/fa6";
 import { useEffect, useRef } from "react";
 import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const ContactSection = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
   const socialRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Header animation
-    if (headerRef.current) {
-      const heading = headerRef.current.querySelector("h2");
-      const description = headerRef.current.querySelector("p");
-
-      if (heading) {
-        gsap.fromTo(
-          heading,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: DURATIONS.verySlow,
-            ease: "power2.out",
-            ...createScrollTrigger(heading, { start: "top 85%" }),
-          }
-        );
-      }
-
-      if (description) {
-        gsap.fromTo(
-          description,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: DURATIONS.slow,
-            ease: "power2.out",
-            ...createScrollTrigger(description, { start: "top 85%" }),
-            delay: 0.2,
-          }
-        );
-      }
-    }
-
     // Form animation
     if (formRef.current) {
       gsap.fromTo(
@@ -112,76 +75,10 @@ export const ContactSection = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-6">
-        {/* Section Header */}
-        <div ref={headerRef} className="text-center mb-12 mt-16">
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-4">
-            Ready to Automate Smarter?
-          </h2>
-          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
-            Schedule a Call and Begin Automating
-          </p>
+        {/* Contact Form Component */}
+        <div ref={formRef}>
+          <ContactForm />
         </div>
-
-        {/* Contact Form */}
-        <form ref={formRef} className="space-y-6 mb-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Name Input */}
-            <Input
-              type="text"
-              label="Name"
-              placeholder="Enter your name"
-              variant="bordered"
-              size="lg"
-              classNames={{
-                input: "text-white",
-                label: "text-gray-400",
-                inputWrapper:
-                  "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
-              }}
-            />
-
-            {/* Subject Input */}
-            <Input
-              type="text"
-              label="Subject"
-              placeholder="Enter subject"
-              variant="bordered"
-              size="lg"
-              classNames={{
-                input: "text-white",
-                label: "text-gray-400",
-                inputWrapper:
-                  "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
-              }}
-            />
-          </div>
-
-          {/* Message Textarea */}
-          <Textarea
-            label="Message"
-            placeholder="Enter your message"
-            variant="bordered"
-            size="lg"
-            minRows={6}
-            classNames={{
-              input: "text-white",
-              label: "text-gray-400",
-              inputWrapper:
-                "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
-            }}
-          />
-
-          {/* Submit Button */}
-          <div className="flex justify-center">
-            <Button
-              type="submit"
-              size="lg"
-              className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-8 py-6 text-base rounded-lg transition-all"
-            >
-              Send Message
-            </Button>
-          </div>
-        </form>
 
         {/* Social Links */}
         <div ref={socialRef} className="flex justify-center gap-6 mb-8">
