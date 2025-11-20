@@ -6,7 +6,8 @@ const CallButton = () => {
         role="button"
         className="group relative inline-flex items-center justify-center text-base rounded-xl bg-black/80 px-8 py-3 font-medium text-white transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
         title="payment"
-        href="#"
+        target="_blank"
+        href="https://cal.com/jeevijay-technologies/30min"
       >
         Book a free consultation today
         <svg
