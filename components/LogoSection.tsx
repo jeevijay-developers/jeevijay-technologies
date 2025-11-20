@@ -15,7 +15,7 @@ export const LogoSection = () => {
   ];
 
   // Duplicate logos for seamless infinite scroll
-  const duplicatedLogos = [...logos, ...logos, ...logos];
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos, ...logos];
 
   return (
     <section className="py-16 bg-black overflow-hidden">
@@ -38,13 +38,13 @@ export const LogoSection = () => {
           {/* Right shadow overlay */}
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-          <div className="flex gap-12 animate-infinite-scroll">
+          <div className="flex gap-6 sm:gap-12 animate-infinite-scroll">
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 flex items-center justify-center min-w-[300px] h-40 px-8"
+                className="flex-shrink-0 flex items-center justify-center min-w-[140px] sm:min-w-[200px] md:min-w-[300px] h-32 sm:h-40 px-4 sm:px-8"
               >
-                <div className="w-full h-full flex items-center justify-center rounded-lg hover:bg-white/5 transition-all duration-300 p-6">
+                <div className="w-full h-full flex items-center justify-center rounded-lg hover:bg-white/5 transition-all duration-300 p-4 sm:p-6">
                   <Image
                     src={logo.src}
                     alt={logo.name}

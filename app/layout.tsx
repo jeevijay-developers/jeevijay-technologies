@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Viewport } from "next";
+import { Viewport, Metadata } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { Providers } from "./providers";
@@ -12,6 +12,15 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+};
+
+export const metadata: Metadata = {
+  title: "Jeevijay Technologies",
+  description: "Enterprise technology solutions for Indian businesses",
+  icons: {
+    icon: "/fav.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

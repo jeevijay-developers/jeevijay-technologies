@@ -83,7 +83,7 @@ export const ContactSection = () => {
         {/* Social Links */}
         <div ref={socialRef} className="flex justify-center gap-6 mb-8">
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/jeevijay-technologies/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-zinc-800 hover:border-zinc-600 flex items-center justify-center text-gray-400 hover:text-white transition-all"
@@ -91,7 +91,7 @@ export const ContactSection = () => {
             <FaLinkedin className="w-5 h-5" />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/jeevijay.technologies/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-zinc-800 hover:border-zinc-600 flex items-center justify-center text-gray-400 hover:text-white transition-all"
@@ -99,7 +99,7 @@ export const ContactSection = () => {
             <FaInstagram className="w-5 h-5" />
           </a>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/Jeevijaytech/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-zinc-800 hover:border-zinc-600 flex items-center justify-center text-gray-400 hover:text-white transition-all"

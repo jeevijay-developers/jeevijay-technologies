@@ -461,7 +461,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className="relative max-w-2xl w-full"
+                className="relative max-w-md md:max-w-xl w-full"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
