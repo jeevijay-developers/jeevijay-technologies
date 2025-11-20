@@ -2,13 +2,38 @@
 
 import { Card, CardBody } from "@heroui/card";
 import { FiStar } from "react-icons/fi";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 import Image from "next/image";
 
 export const TestimonialsSection = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const testimonialRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swiped left
+      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    }
+
+    if (touchStart - touchEnd < -75) {
+      // Swiped right
+      setCurrentSlide(
+        (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      );
+    }
+  };
 
   useEffect(() => {
     // Header animation
@@ -136,8 +161,82 @@ export const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Mobile Carousel */}
+        <div
+          className="md:hidden relative overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="min-w-full px-2">
+                <Card className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-zinc-800">
+                  <CardBody className="p-6">
+                    {/* Star Rating */}
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <FiStar
+                          key={i}
+                          className="w-4 h-4 fill-white text-white"
+                        />
+                      ))}
+                    </div>
+
+                    {/* Quote */}
+                    <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                      "{testimonial.quote}"
+                    </p>
+
+                    {/* Author Info */}
+                    <div className="flex items-center gap-3">
+                      {/* Avatar */}
+                      <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          width={40}
+                          height={40}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Name and Title */}
+                      <div>
+                        <p className="text-white font-semibold text-sm">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-gray-400 text-xs">
+                          {testimonial.title}
+                        </p>
+                      </div>
+                    </div>
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {/* Carousel Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-[#ffde59] w-6" : "bg-zinc-700"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Testimonials Grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
