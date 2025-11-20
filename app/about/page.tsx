@@ -31,7 +31,7 @@ export default function AboutPage() {
     {
       name: "Zaid Khan",
       role: "Full Stack Developer",
-      image: "/team/zaid.jpg",
+      image: "/team/zaid.JPG",
       socials: [
         { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
         {
