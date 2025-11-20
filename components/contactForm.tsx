@@ -11,10 +11,10 @@ interface ContactFormProps {
   headerDescription?: string;
 }
 
-export default function ContactForm({ 
+export default function ContactForm({
   showHeader = true,
   headerTitle = "Ready to Automate Smarter?",
-  headerDescription = "Schedule a Call and Begin Automating"
+  headerDescription = "Schedule a Call and Begin Automating",
 }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -22,12 +22,16 @@ export default function ContactForm({
     phone: "",
     message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
+    null
+  );
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -68,12 +72,14 @@ export default function ContactForm({
           phone: "",
           message: "",
         });
-        
+
         // Reset success message after 5 seconds
         setTimeout(() => setSubmitStatus(null), 5000);
       } else {
         setSubmitStatus("error");
-        setErrorMessage(result.message || "Something went wrong. Please try again.");
+        setErrorMessage(
+          result.message || "Something went wrong. Please try again."
+        );
       }
     } catch (error) {
       setSubmitStatus("error");
@@ -86,19 +92,22 @@ export default function ContactForm({
   return (
     <>
       {showHeader && (
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-3 sm:mb-4">
             {headerTitle}
           </h2>
-          <p className="text-md md:text-[20px] text-gray-400 mb-10 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-md md:text-[20px] text-gray-400 mb-6 sm:mb-10 max-w-3xl mx-auto px-4">
             {headerDescription}
           </p>
         </div>
       )}
 
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="space-y-6 mb-6">
-        <div className="grid md:grid-cols-2 gap-6">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 sm:space-y-6 mb-4 sm:mb-6"
+      >
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
           {/* Name Input */}
           <Input
             type="text"
@@ -106,13 +115,13 @@ export default function ContactForm({
             label="Name"
             placeholder="Enter your name"
             variant="bordered"
-            size="lg"
+            size="md"
             value={formData.name}
             onChange={handleChange}
             required
             classNames={{
-              input: "text-white",
-              label: "text-gray-400",
+              input: "text-white text-sm sm:text-base",
+              label: "text-gray-400 text-xs sm:text-sm",
               inputWrapper:
                 "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
             }}
@@ -125,13 +134,13 @@ export default function ContactForm({
             label="Email Address"
             placeholder="Enter your email"
             variant="bordered"
-            size="lg"
+            size="md"
             value={formData.email}
             onChange={handleChange}
             required
             classNames={{
-              input: "text-white",
-              label: "text-gray-400",
+              input: "text-white text-sm sm:text-base",
+              label: "text-gray-400 text-xs sm:text-sm",
               inputWrapper:
                 "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
             }}
@@ -145,13 +154,13 @@ export default function ContactForm({
           label="Phone Number"
           placeholder="Enter your phone number"
           variant="bordered"
-          size="lg"
+          size="md"
           value={formData.phone}
           onChange={handleChange}
           required
           classNames={{
-            input: "text-white",
-            label: "text-gray-400",
+            input: "text-white text-sm sm:text-base",
+            label: "text-gray-400 text-xs sm:text-sm",
             inputWrapper:
               "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
           }}
@@ -163,14 +172,14 @@ export default function ContactForm({
           label="Message"
           placeholder="Enter your message"
           variant="bordered"
-          size="lg"
-          minRows={6}
+          size="md"
+          minRows={4}
           value={formData.message}
           onChange={handleChange}
           required
           classNames={{
-            input: "text-white",
-            label: "text-gray-400",
+            input: "text-white text-sm sm:text-base",
+            label: "text-gray-400 text-xs sm:text-sm",
             inputWrapper:
               "bg-transparent border-zinc-800 hover:border-zinc-700 focus-within:!border-[#ffde59]",
           }}
@@ -180,9 +189,9 @@ export default function ContactForm({
         <div className="flex justify-center">
           <Button
             type="submit"
-            size="lg"
+            size="md"
             disabled={isSubmitting}
-            className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-8 py-6 text-base rounded-lg transition-all disabled:opacity-50"
+            className="bg-[#ffde59] hover:bg-[#e6c750] text-black font-medium px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base rounded-lg transition-all disabled:opacity-50"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
@@ -190,14 +199,14 @@ export default function ContactForm({
 
         {/* Success Message */}
         {submitStatus === "success" && (
-          <div className="bg-green-500/10 border border-green-500/50 rounded-lg p-4 text-green-400 text-center animate-fadeIn">
+          <div className="bg-green-500/10 border border-green-500/50 rounded-lg p-3 sm:p-4 text-green-400 text-center text-sm sm:text-base animate-fadeIn">
             ✓ Thank you! We'll get back to you soon.
           </div>
         )}
 
         {/* Error Message */}
         {submitStatus === "error" && (
-          <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-4 text-red-400 text-center animate-fadeIn">
+          <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3 sm:p-4 text-red-400 text-center text-sm sm:text-base animate-fadeIn">
             ✗ {errorMessage}
           </div>
         )}
