@@ -3,18 +3,17 @@
 import { useState, useEffect, useRef } from "react";
 import { Card, CardBody, CardHeader } from "@heroui/card";
 import { Button } from "@heroui/button";
-import { Switch } from "@heroui/switch";
 import { FiCheck, FiZap, FiUsers, FiTrendingUp } from "react-icons/fi";
 import { gsap, createScrollTrigger, DURATIONS } from "@/config/gsap";
 
 export const PricingSection = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
-  const toggleRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+
+  const formatCurrency = (amount: number) => amount.toLocaleString("en-IN");
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
@@ -90,22 +89,6 @@ export const PricingSection = () => {
       }
     }
 
-    // Toggle switch animation
-    if (toggleRef.current) {
-      gsap.fromTo(
-        toggleRef.current,
-        { opacity: 0, scale: 0.9 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: DURATIONS.slow,
-          ease: "power2.out",
-          ...createScrollTrigger(toggleRef.current, { start: "top 85%" }),
-          delay: 0.6,
-        }
-      );
-    }
-
     // Pricing cards staggered animation
     cardRefs.current.forEach((card, index) => {
       if (card) {
@@ -135,53 +118,69 @@ export const PricingSection = () => {
 
   const pricingPlans = [
     {
+      tierLabel: "⭐ Plan 1",
       icon: <FiZap className="w-5 h-5" />,
-      name: "Starter",
+      name: "Starter Growth Plan",
       description:
-        "Perfect for startups and small businesses launching their digital presence.",
-      monthlyPrice: 37,
-      annualPrice: 30,
+        "Best for small businesses, startups, and personal brands establishing a steady presence.",
+      bestFor: "Small businesses, startups, personal brands",
+      monthlyPrice: 15000,
       features: [
-        "Basic workflow automation",
-        "AI-powered personal assistant",
-        "Standard analytics & reporting",
-        "Email & chat support",
-        "Up to 3 AI integrations",
+        "Social media management (Facebook + Instagram) - 12 posts/month",
+        "Basic content strategy with monthly calendar",
+        "Social media creatives mix (static + reels)",
+        "Free awareness campaign reaching up to 50,000 users",
+        "Basic SEO (on-page setup + 5 keywords optimization)",
+        "Google Business Profile optimization",
+        "Monthly analytics report",
+        "1 performance consultation call",
       ],
       buttonText: "Choose this plan",
       buttonVariant: "bordered" as const,
       popular: false,
     },
     {
+      tierLabel: "⭐⭐ Plan 2",
       icon: <FiTrendingUp className="w-5 h-5" />,
-      name: "Professional",
+      name: "Business Expansion Plan",
       description:
-        "Ideal for growing businesses seeking comprehensive digital solutions.",
-      monthlyPrice: 75,
-      annualPrice: 60,
+        "Best for growing companies that need faster digital growth across channels.",
+      bestFor: "Growing companies scaling digital growth",
+      monthlyPrice: 25000,
       features: [
-        "Advanced workflow automation",
-        "AI-driven sales & marketing tools",
-        "Enhanced data analytics & insights",
-        "Priority customer support",
-        "Up to 10 AI integrations",
+        "Social media management (Facebook + Instagram + LinkedIn) - 20 posts/month",
+        "Advanced content strategy plus competitor analysis",
+        "Graphic creatives, motion graphics, and reels",
+        "Free awareness campaign reaching up to 200,000 users",
+        "SEO (on-page + off-page) with 10-12 keywords",
+        "Google Ads or Meta Ads setup and management*",
+        "Landing page optimization",
+        "Weekly performance reports",
+        "2 strategy calls each month",
       ],
+      footnote: "*Ad budget charged separately.",
       buttonText: "Choose this plan",
       buttonVariant: "solid" as const,
       popular: true,
     },
     {
+      tierLabel: "⭐⭐⭐ Plan 3",
       icon: <FiUsers className="w-5 h-5" />,
-      name: "Enterprise",
-      price: "Custom",
+      name: "Enterprise Custom Plan",
+      price: "Custom Pricing",
       description:
-        "Tailored solutions for large enterprises with complex requirements.",
+        "Best for enterprises, real estate leaders, and multi-location brands that need end-to-end support.",
+      bestFor: "Enterprises, real estate, multi-location brands",
       features: [
-        "Fully customizable AI automation",
-        "Dedicated AI business consultant",
-        "Enterprise-grade compliance",
-        "24/7 VIP support",
-        "Unlimited AI integrations",
+        "360-degree digital marketing management",
+        "Multi-platform social media management",
+        "Full SEO management for competitive keywords",
+        "Performance marketing across Meta, Google, and LinkedIn",
+        "Funnel setup, automation, and email/SMS marketing",
+        "Website optimization and CRO",
+        "CRM integration when needed",
+        "Dedicated account manager",
+        "Custom monthly reporting dashboard",
       ],
       buttonText: "Schedule a call",
       buttonVariant: "bordered" as const,
@@ -198,7 +197,7 @@ export const PricingSection = () => {
             Pricing
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
-            Flexible Plans for Every
+            Digital Marketing Plans for Every
             <br />
             Business Stage
           </h2>
@@ -206,35 +205,6 @@ export const PricingSection = () => {
             Choose a plan that aligns with your growth objectives and scale
             seamlessly as your business expands.
           </p>
-
-          {/* Toggle Switch */}
-          <div
-            ref={toggleRef}
-            className="flex items-center justify-center gap-4"
-          >
-            <span
-              className={`text-base font-medium transition-colors ${
-                !isAnnual ? "text-white" : "text-gray-500"
-              }`}
-            >
-              Monthly
-            </span>
-            <Switch
-              isSelected={isAnnual}
-              onValueChange={setIsAnnual}
-              size="lg"
-              classNames={{
-                wrapper: "bg-zinc-700 group-data-[selected=true]:bg-[#ffde59]",
-              }}
-            />
-            <span
-              className={`text-base font-medium transition-colors ${
-                isAnnual ? "text-white" : "text-gray-500"
-              }`}
-            >
-              Annually
-            </span>
-          </div>
         </div>
 
         {/* Mobile Carousel */}
@@ -266,6 +236,11 @@ export const PricingSection = () => {
                   )}
 
                   <CardHeader className="flex-col items-start gap-2 pb-4 pt-6">
+                    {plan.tierLabel && (
+                      <span className="text-xs font-semibold uppercase tracking-wide text-[#ffde59]">
+                        {plan.tierLabel}
+                      </span>
+                    )}
                     {/* Icon */}
                     <div className="w-10 h-10 rounded-lg bg-[#ffde59]/20 flex items-center justify-center text-[#ffde59]">
                       {plan.icon}
@@ -285,7 +260,8 @@ export const PricingSection = () => {
                       ) : (
                         <>
                           <span className="text-3xl font-bold text-white">
-                            ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                            {"\u20B9"}
+                            {formatCurrency(plan.monthlyPrice ?? 0)}
                           </span>
                           <span className="text-gray-400 text-sm">/month</span>
                         </>
@@ -294,6 +270,11 @@ export const PricingSection = () => {
 
                     {/* Description */}
                     <p className="text-gray-400 text-xs">{plan.description}</p>
+                    {plan.bestFor && (
+                      <p className="text-[11px] text-[#ffde59] font-medium">
+                        Best for: {plan.bestFor}
+                      </p>
+                    )}
                   </CardHeader>
 
                   <CardBody className="pt-0">
@@ -323,6 +304,11 @@ export const PricingSection = () => {
                         </div>
                       ))}
                     </div>
+                    {plan.footnote && (
+                      <p className="text-[11px] text-gray-500 mt-4 italic">
+                        {plan.footnote}
+                      </p>
+                    )}
                   </CardBody>
                 </Card>
               </div>
@@ -369,6 +355,11 @@ export const PricingSection = () => {
                 )}
 
                 <CardHeader className="flex-col items-start gap-3 pb-6 pt-8">
+                  {plan.tierLabel && (
+                    <span className="text-xs font-semibold uppercase tracking-wide text-[#ffde59]">
+                      {plan.tierLabel}
+                    </span>
+                  )}
                   {/* Icon */}
                   <div className="w-12 h-12 rounded-lg bg-[#ffde59]/20 flex items-center justify-center text-[#ffde59]">
                     {plan.icon}
@@ -386,7 +377,8 @@ export const PricingSection = () => {
                     ) : (
                       <>
                         <span className="text-4xl font-bold text-white">
-                          ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                          {"\u20B9"}
+                          {formatCurrency(plan.monthlyPrice ?? 0)}
                         </span>
                         <span className="text-gray-400 text-base">/month</span>
                       </>
@@ -395,6 +387,11 @@ export const PricingSection = () => {
 
                   {/* Description */}
                   <p className="text-gray-400 text-sm">{plan.description}</p>
+                  {plan.bestFor && (
+                    <p className="text-xs text-[#ffde59] font-medium">
+                      Best for: {plan.bestFor}
+                    </p>
+                  )}
                 </CardHeader>
 
                 <CardBody className="pt-0">
@@ -422,6 +419,11 @@ export const PricingSection = () => {
                       </div>
                     ))}
                   </div>
+                  {plan.footnote && (
+                    <p className="text-sm text-gray-500 mt-4 italic">
+                      {plan.footnote}
+                    </p>
+                  )}
                 </CardBody>
               </Card>
             </div>
