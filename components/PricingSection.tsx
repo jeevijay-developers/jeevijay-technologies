@@ -197,7 +197,7 @@ export const PricingSection = () => {
             Pricing
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-6">
-            Flexible Plans for Every
+            Digital Marketing Plans for Every
             <br />
             Business Stage
           </h2>
