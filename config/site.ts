@@ -21,7 +21,7 @@ export const siteConfig = {
       href: "/#process",
     },
     {
-      label: "Plans",
+      label: "Marketing Plans",
       href: "/#pricing",
     },
     {
