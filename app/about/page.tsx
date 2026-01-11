@@ -54,32 +54,32 @@ export default function AboutPage() {
         },
       ],
     },
-    {
-      name: "Tushar Dua",
-      role: "Project Manager",
-      image: "/team/tushar.jpeg",
-      socials: [
-        { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
-        {
-          platform: "instagram",
-          url: "https://instagram.com",
-          icon: FaInstagram,
-        },
-      ],
-    },
-    {
-      name: "Vinita",
-      role: "Digital Marketing Head",
-      image: "/team/vinita.jpeg",
-      socials: [
-        { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
-        {
-          platform: "instagram",
-          url: "https://instagram.com",
-          icon: FaInstagram,
-        },
-      ],
-    },
+    // {
+    //   name: "Tushar Dua",
+    //   role: "Project Manager",
+    //   image: "/team/tushar.jpeg",
+    //   socials: [
+    //     { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+    //     {
+    //       platform: "instagram",
+    //       url: "https://instagram.com",
+    //       icon: FaInstagram,
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Vinita",
+    //   role: "Digital Marketing Head",
+    //   image: "/team/vinita.jpeg",
+    //   socials: [
+    //     { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+    //     {
+    //       platform: "instagram",
+    //       url: "https://instagram.com",
+    //       icon: FaInstagram,
+    //     },
+    //   ],
+    // },
   ];
 
   return (
