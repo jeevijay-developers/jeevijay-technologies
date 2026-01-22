@@ -16,19 +16,6 @@ export default function AboutPage() {
 
   const teamMembers = [
     {
-      name: "Mr. Medinee Kumar",
-      role: "Business Mentor & Strategic Advisor",
-      image: "/team/medinee.png",
-      socials: [
-        { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
-        {
-          platform: "instagram",
-          url: "https://instagram.com",
-          icon: FaInstagram,
-        },
-      ],
-    },
-    {
       name: "Lakshay Saxena",
       role: "Senior Developer",
       image: "/team/lakshya.jpg",
