@@ -403,6 +403,114 @@ export default function AboutPage() {
             </div>
           </motion.div>
 
+          {/* Business Mentor Section - Mr. Medinee Kumar */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3 sm:mb-4 px-4">
+              Meet Mr. Medinee Kumar: Business Mentor
+            </h2>
+            <p className="text-[16px] sm:text-xl text-[#ffde59] text-center mb-8 sm:mb-12 font-semibold px-4">
+              Engineering | Manufacturing | Operations Excellence
+            </p>
+
+            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg rounded-2xl p-4 sm:p-6 md:p-12 border border-gray-700/50 shadow-2xl">
+              <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+                {/* Image Section */}
+                <div className="order-2 md:order-1">
+                  <div className="relative h-64 sm:h-80 md:h-96 lg:h-150 rounded-xl overflow-hidden shadow-2xl">
+                    <div className="absolute inset-0 z-10"></div>
+                    <Image
+                      src="/team/medinee.png"
+                      alt="Mr. Medinee Kumar - Business Mentor"
+                      className="w-full h-full object-cover"
+                      width={600}
+                      height={800}
+                    />
+                  </div>
+
+                  {/* Expertise Tags */}
+                  <div className="mt-6 flex flex-wrap gap-2 sm:gap-4 justify-center">
+                    <div className="bg-[#ffde59] rounded-full px-2 py-1 sm:px-4 sm:py-2">
+                      <span className="text-black font-semibold text-xs sm:text-sm">
+                        Manufacturing Expert
+                      </span>
+                    </div>
+                    <div className="bg-[#ffde59] rounded-full px-2 py-1 sm:px-4 sm:py-2">
+                      <span className="text-black font-semibold text-xs sm:text-sm">
+                        Operations Leader
+                      </span>
+                    </div>
+                    <div className="bg-[#ffde59] rounded-full px-2 py-1 sm:px-4 sm:py-2">
+                      <span className="text-black font-semibold text-xs sm:text-sm">
+                        Strategic Advisor
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="order-1 md:order-2">
+                  <div className="space-y-4 sm:space-y-6">
+                    <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+                      Mr. Medinee Kumar is a{" "}
+                      <span className="font-semibold">
+                        seasoned engineering and industry professional
+                      </span>{" "}
+                      with deep experience across manufacturing, operations, and
+                      large-scale system execution. His expertise spans decades
+                      of hands-on work in industrial environments.
+                    </p>
+
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      As Business Mentor at Jeevijay Technologies Pvt. Ltd., he
+                      guides the team in building robust, execution-ready, and
+                      scalable AI-powered SaaS platforms, bringing real-world
+                      industrial best practices into modern technology systems.
+                    </p>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-3">
+                        Mentorship Impact
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed">
+                        His mentorship strengthens Jeevijay's focus on{" "}
+                        <span className="font-semibold">
+                          process discipline, scalability, and long-term
+                          operational excellence
+                        </span>
+                        —ensuring every solution we deliver is built for
+                        real-world performance and growth.
+                      </p>
+                    </div>
+
+                    {/* Key Expertise Tags */}
+                    <div className="flex flex-wrap gap-2 sm:gap-3 pt-4">
+                      <span className="bg-gray-700/50 text-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm">
+                        System Execution
+                      </span>
+                      <span className="bg-gray-700/50 text-gray-300 px-4 py-2 rounded-full text-sm">
+                        Process Discipline
+                      </span>
+                      <span className="bg-gray-700/50 text-gray-300 px-4 py-2 rounded-full text-sm">
+                        Scalability
+                      </span>
+                      <span className="bg-gray-700/50 text-gray-300 px-4 py-2 rounded-full text-sm">
+                        Industrial Excellence
+                      </span>
+                      <span className="bg-gray-700/50 text-gray-300 px-4 py-2 rounded-full text-sm">
+                        AI-Powered SaaS
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Our Team Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
