@@ -413,7 +413,6 @@ export default function AboutPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8 sm:mb-12 px-4">
               Our <span className="text-[#ffde59]">Team</span>
             </h2>
-
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {teamMembers.map((member, index) => (
                 <motion.div
