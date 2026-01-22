@@ -43,6 +43,19 @@ export default function AboutPage() {
       ],
     },
     {
+      name: "Ayush Saxena",
+      role: "Digital Marketing Manager",
+      image: "/team/ayush.png",
+      // socials: [
+      //   { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+      //   {
+      //     platform: "instagram",
+      //     url: "https://instagram.com",
+      //     icon: FaInstagram,
+      //   },
+      // ],
+    },
+    {
       name: "Tushar Dua",
       role: "Project Manager",
       image: "/team/tushar.png",
@@ -56,7 +69,7 @@ export default function AboutPage() {
       // ],
     },
     {
-      name: "Vinita",
+      name: "Vinita Jain",
       role: "Digital Marketing Head",
       image: "/team/vinita.png",
       // socials: [
