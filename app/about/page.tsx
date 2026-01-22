@@ -15,15 +15,16 @@ export default function AboutPage() {
   }, []);
 
   const teamMembers = [
+
     {
       name: "Lakshay Saxena",
       role: "Senior Developer",
       image: "/team/lakshya.jpg",
       socials: [
-        { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+        { platform: "linkedin", url: "https://www.linkedin.com/in/icodelakshay", icon: FaLinkedin },
         {
           platform: "instagram",
-          url: "https://instagram.com",
+          url: "https://instagram.com/lakshay.tech",
           icon: FaInstagram,
         },
       ],
@@ -33,40 +34,40 @@ export default function AboutPage() {
       role: "Full Stack Developer",
       image: "/team/zaid.JPG",
       socials: [
-        { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+        { platform: "linkedin", url: "https://www.linkedin.com/in/zaid-khan-6094ba283", icon: FaLinkedin },
         {
           platform: "instagram",
-          url: "https://instagram.com",
+          url: "https://instagram.com/_zaid_401",
           icon: FaInstagram,
         },
       ],
     },
-    // {
-    //   name: "Tushar Dua",
-    //   role: "Project Manager",
-    //   image: "/team/tushar.jpeg",
-    //   socials: [
-    //     { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
-    //     {
-    //       platform: "instagram",
-    //       url: "https://instagram.com",
-    //       icon: FaInstagram,
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Vinita",
-    //   role: "Digital Marketing Head",
-    //   image: "/team/vinita.jpeg",
-    //   socials: [
-    //     { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
-    //     {
-    //       platform: "instagram",
-    //       url: "https://instagram.com",
-    //       icon: FaInstagram,
-    //     },
-    //   ],
-    // },
+    {
+      name: "Tushar Dua",
+      role: "Project Manager",
+      image: "/team/tushar.png",
+      // socials: [
+      //   { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+      //   {
+      //     platform: "instagram",
+      //     url: "https://instagram.com",
+      //     icon: FaInstagram,
+      //   },
+      // ],
+    },
+    {
+      name: "Vinita",
+      role: "Digital Marketing Head",
+      image: "/team/vinita.png",
+      // socials: [
+      //   { platform: "linkedin", url: "https://linkedin.com", icon: FaLinkedin },
+      //   {
+      //     platform: "instagram",
+      //     url: "https://instagram.com",
+      //     icon: FaInstagram,
+      //   },
+      // ],
+    },
   ];
 
   return (
@@ -540,7 +541,7 @@ export default function AboutPage() {
                   </p>
                   {member.socials && member.socials.length > 0 && (
                     <div className="flex justify-center gap-3">
-                      {member.socials.map((social, idx) => (
+                      {member?.socials?.map((social, idx) => (
                         <a
                           key={idx}
                           href={social.url}
